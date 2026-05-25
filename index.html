@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ayushman Satapathy — AI/ML Developer & Data Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  :root {
+    --bg: #0d0d0d; --surface: #161616; --surface2: #181818;
+    --border: #1e1e1e; --border-light: #2a2a2a;
+    --text: #f0f0f0; --text-2: #888; --text-3: #484848;
+    --accent: #4a9eff; --accent-dim: rgba(74,158,255,0.1);
+    --white: #ffffff;
+    --sans: 'DM Sans', sans-serif; --mono: 'DM Mono', monospace;
+  }
+  body { background:var(--bg); color:var(--text); font-family:var(--sans); overflow-x:hidden; -webkit-font-smoothing:antialiased; cursor:none; }
+  ::-webkit-scrollbar { width:3px; }
+  ::-webkit-scrollbar-track { background:var(--bg); }
+  ::-webkit-scrollbar-thumb { background:var(--border-light); }
+
+  /* CURSOR */
+  #cur { position:fixed; width:9px; height:9px; background:var(--accent); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:transform 0.1s; mix-blend-mode:difference; }
+  #cur-ring { position:fixed; width:30px; height:30px; border:1px solid rgba(74,158,255,0.35); border-radius:50%; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:all 0.18s; }
+
+  /* NAV */
+  nav { position:fixed; top:0; left:0; right:0; z-index:200; display:flex; justify-content:space-between; align-items:center; padding:1.3rem 4rem; background:rgba(13,13,13,0.88); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); }
+  .nav-logo { font-family:var(--sans); font-size:0.9rem; font-weight:500; color:var(--text); text-decoration:none; }
+  .nav-logo b { color:var(--accent); font-weight:700; }
+  .nav-links { display:flex; align-items:center; gap:2.5rem; list-style:none; }
+  .nav-links a { font-size:0.82rem; font-weight:400; color:var(--text-2); text-decoration:none; transition:color 0.2s; }
+  .nav-links a:hover { color:var(--text); }
+  .nav-cta { padding:0.52rem 1.3rem; background:var(--accent); color:#ffffff !important; font-weight:600 !important; border-radius:100px; transition:opacity 0.2s, transform 0.2s !important; }
+  .nav-cta:hover { opacity:0.85; transform:translateY(-1px) !important; }
+  .nav-burger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+  .nav-burger span { display:block; width:22px; height:1.5px; background:var(--text); border-radius:1px; }
+
+  /* HERO */
+  #hero { min-height:100vh; display:flex; flex-direction:column; justify-content:flex-end; padding:0 4rem 5rem; position:relative; overflow:hidden; }
+  .hero-noise { position:absolute; inset:0; z-index:0; pointer-events:none; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E"); opacity:0.7; }
+  .hero-status { position:relative; z-index:2; display:inline-flex; align-items:center; gap:0.6rem; font-family:var(--mono); font-size:0.7rem; color:var(--text-2); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:2rem; }
+  .hero-status::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 8px var(--accent); animation:pdot 2s infinite; }
+  @keyframes pdot { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  .hero-headline { position:relative; z-index:2; font-size:clamp(4rem,10.5vw,9.5rem); font-weight:300; line-height:0.93; letter-spacing:-0.04em; color:var(--white); margin-bottom:1rem; }
+  .hero-headline em { font-style:italic; color:var(--text-2); }
+  .hero-headline b { color:var(--accent); font-weight:400; font-style:normal; }
+  .hero-bottom { position:relative; z-index:2; display:flex; justify-content:space-between; align-items:flex-end; margin-top:3rem; padding-top:2rem; border-top:1px solid var(--border); gap:2rem; }
+  .hero-desc { max-width:460px; font-size:1rem; color:var(--text-2); line-height:1.72; font-weight:300; }
+  .hero-desc strong { color:var(--text); font-weight:500; }
+  .hero-actions { display:flex; gap:1rem; align-items:center; flex-shrink:0; }
+  .btn-p { display:inline-flex; align-items:center; padding:0.72rem 1.7rem; background:var(--accent); color:#ffffff; font-family:var(--sans); font-size:0.83rem; font-weight:600; text-decoration:none; border-radius:100px; border:none; cursor:pointer; transition:opacity 0.2s, transform 0.2s; }
+  .btn-p:hover { opacity:0.86; transform:translateY(-2px); }
+  .btn-g { display:inline-flex; align-items:center; padding:0.72rem 1.7rem; background:transparent; color:var(--text); font-family:var(--sans); font-size:0.83rem; font-weight:500; text-decoration:none; border-radius:100px; border:1px solid var(--border-light); cursor:pointer; transition:all 0.2s; }
+  .btn-g:hover { border-color:var(--text-2); transform:translateY(-2px); }
+  .scroll-hint { position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:0.5rem; font-family:var(--mono); font-size:0.6rem; color:var(--text-3); letter-spacing:0.1em; text-transform:uppercase; z-index:2; }
+  .scroll-bar { width:1px; height:38px; background:linear-gradient(var(--border-light), transparent); animation:sbar 2s infinite; }
+  @keyframes sbar { 0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 51%{transform:scaleY(1);transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
+
+  /* SECTIONS */
+  section { padding:7rem 4rem; position:relative; z-index:2; }
+  .eyebrow { font-family:var(--mono); font-size:0.68rem; color:var(--text-3); letter-spacing:0.16em; text-transform:uppercase; margin-bottom:0.9rem; }
+  .sec-head { font-size:clamp(2.4rem,5vw,3.8rem); font-weight:300; letter-spacing:-0.03em; color:var(--white); line-height:1.05; }
+  .sec-head em { font-style:italic; color:var(--text-2); }
+  .rule { width:100%; height:1px; background:var(--border); margin:3rem 0; }
+
+  /* REVEAL */
+  .reveal { opacity:0; transform:translateY(22px); transition:opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .d1 { transition-delay:0.1s; } .d2 { transition-delay:0.2s; } .d3 { transition-delay:0.3s; }
+
+  /* ABOUT */
+  #about { background:var(--bg); border-top:1px solid var(--border); }
+  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:start; margin-top:2rem; }
+  .about-p { font-size:1rem; color:var(--text-2); line-height:1.85; margin-bottom:1.3rem; font-weight:300; }
+  .about-p strong { color:var(--text); font-weight:500; }
+  .stats { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); margin-top:2.5rem; }
+  .stat { background:var(--bg); padding:1.7rem; transition:background 0.2s; }
+  .stat:hover { background:var(--surface); }
+  .snum { font-size:2.2rem; font-weight:300; color:var(--white); letter-spacing:-0.03em; line-height:1; }
+  .snum span { color:var(--accent); }
+  .slabel { font-family:var(--mono); font-size:0.65rem; color:var(--text-3); letter-spacing:0.1em; text-transform:uppercase; margin-top:0.35rem; }
+  .terminal-card { background:var(--surface); border:1px solid var(--border-light); border-radius:8px; overflow:hidden; }
+  .tbar { display:flex; align-items:center; gap:0.45rem; padding:0.85rem 1.2rem; background:var(--surface2); border-bottom:1px solid var(--border); }
+  .td { width:10px; height:10px; border-radius:50%; }
+  .td:nth-child(1){background:#ff5f56}.td:nth-child(2){background:#ffbd2e}.td:nth-child(3){background:#27c93f}
+  .tbody { padding:1.5rem 1.8rem; }
+  .tl { font-family:var(--mono); font-size:0.77rem; color:var(--text-2); line-height:1.7; }
+  .tk{color:#7dd3fc} .tv{color:#a78bfa} .ts{color:#86efac}
+  .tc { display:inline-block; width:7px; height:13px; background:var(--accent); animation:blink 1s step-end infinite; vertical-align:middle; }
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+  .avail { display:inline-flex; align-items:center; gap:0.5rem; margin-top:1.8rem; padding:0.55rem 1.1rem; border:1px solid rgba(74,158,255,0.22); border-radius:100px; background:var(--accent-dim); font-family:var(--mono); font-size:0.68rem; color:var(--accent); letter-spacing:0.05em; }
+  .avail::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--accent); animation:pdot 2s infinite; }
+
+  /* SKILLS */
+  #skills { background:var(--surface); border-top:1px solid var(--border); }
+  .skills-wrap { display:grid; grid-template-columns:300px 1fr; gap:6rem; align-items:start; margin-top:2rem; }
+  .skills-left p { font-size:0.93rem; color:var(--text-2); line-height:1.75; margin-top:1.4rem; font-weight:300; }
+  .skills-left { position:sticky; top:7rem; }
+  .accordion {}
+  .acc-item { border-bottom:1px solid var(--border); }
+  .acc-head { display:flex; justify-content:space-between; align-items:center; padding:1.3rem 0; cursor:pointer; font-size:0.88rem; font-weight:500; color:var(--text); transition:color 0.2s; user-select:none; }
+  .acc-head:hover { color:var(--accent); }
+  .acc-arr { font-size:0.7rem; color:var(--text-3); transition:transform 0.25s; }
+  .acc-head.open { color:var(--accent); }
+  .acc-head.open .acc-arr { transform:rotate(90deg); color:var(--accent); }
+  .acc-body { max-height:0; overflow:hidden; transition:max-height 0.35s ease; }
+  .acc-body.open { max-height:220px; }
+  .tags { display:flex; flex-wrap:wrap; gap:0.45rem; padding-bottom:1.2rem; }
+  .tag { font-family:var(--mono); font-size:0.7rem; padding:0.28rem 0.8rem; border-radius:4px; background:var(--surface2); border:1px solid var(--border-light); color:var(--text-2); transition:all 0.2s; letter-spacing:0.02em; }
+  .tag:hover { background:var(--accent-dim); border-color:rgba(74,158,255,0.3); color:var(--accent); }
+
+  /* PROJECTS — FEATURED CARDS */
+  #projects { background:var(--bg); border-top:1px solid var(--border); }
+
+  /* Card grid */
+  .feat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
+  .pcard {
+    background:var(--surface); border:1px solid var(--border-light);
+    border-radius:12px; overflow:hidden;
+    display:flex; flex-direction:column;
+    transition:transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+  }
+  .pcard:hover { transform:translateY(-5px); border-color:rgba(74,158,255,0.25); box-shadow:0 20px 40px rgba(0,0,0,0.4); }
+  .pcard-img {
+    width:100%; aspect-ratio:16/9; overflow:hidden;
+    background:var(--surface2); position:relative;
+  }
+  .pcard-img img { width:100%; height:100%; object-fit:cover; object-position:top; display:block; transition:transform 0.5s ease; }
+  .pcard:hover .pcard-img img { transform:scale(1.04); }
+  /* fallback gradient when no img */
+  .pcard-img.grad-ml { background:linear-gradient(135deg,#0d1b2a 0%,#1a3a5c 50%,#0d2137 100%); }
+  .pcard-img.grad-da { background:linear-gradient(135deg,#1a1a0d 0%,#2e3b1a 50%,#1a2200 100%); }
+  .pcard-img.grad-web { background:linear-gradient(135deg,#1a0d2e 0%,#2e1a4a 50%,#1a0d3a 100%); }
+  /* SVG preview inside gradient cards */
+  .pcard-img svg { position:absolute; inset:0; width:100%; height:100%; }
+
+  .pcard-body { padding:1.5rem; display:flex; flex-direction:column; flex:1; gap:0.8rem; }
+  .pcard-cat { font-family:var(--mono); font-size:0.6rem; color:var(--accent); letter-spacing:0.12em; text-transform:uppercase; }
+  .pcard-name { font-size:1.05rem; font-weight:600; color:var(--white); letter-spacing:-0.02em; line-height:1.25; }
+  .pcard-desc { font-size:0.82rem; color:var(--text-2); line-height:1.65; font-weight:300; flex:1; }
+  .pcard-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+  .pcard-tag { font-family:var(--mono); font-size:0.62rem; padding:0.2rem 0.65rem; border-radius:4px; background:var(--surface2); border:1px solid var(--border); color:var(--text-3); }
+  .pcard-btns { display:flex; gap:0.75rem; margin-top:0.4rem; }
+  .pbtn-gh, .pbtn-live {
+    flex:1; display:inline-flex; align-items:center; justify-content:center; gap:0.45rem;
+    padding:0.55rem 1rem; border-radius:8px;
+    font-family:var(--sans); font-size:0.78rem; font-weight:500;
+    text-decoration:none; transition:all 0.2s; cursor:pointer;
+  }
+  .pbtn-gh { background:var(--surface2); border:1px solid var(--border-light); color:var(--text-2); }
+  .pbtn-gh:hover { border-color:var(--text-2); color:var(--text); }
+  .pbtn-live { background:var(--accent); border:1px solid var(--accent); color:#ffffff; }
+  .pbtn-live:hover { opacity:0.85; transform:translateY(-1px); }
+
+  /* View all link */
+  .proj-footer { text-align:center; margin-top:3.5rem; }
+  .view-all-btn {
+    display:inline-flex; align-items:center; gap:0.6rem;
+    font-family:var(--sans); font-size:0.92rem; font-weight:600;
+    color:var(--text); text-decoration:none;
+    border-bottom:1px solid var(--border-light);
+    padding-bottom:0.2rem;
+    transition:color 0.2s, border-color 0.2s;
+    cursor:pointer; background:none; border-top:none; border-left:none; border-right:none;
+  }
+  .view-all-btn:hover { color:var(--accent); border-color:var(--accent); }
+
+  /* ─── ALL PROJECTS PAGE (overlay) ─── */
+  #all-projects-page {
+    display:none; position:fixed; inset:0; z-index:300;
+    background:var(--bg); overflow-y:auto;
+    padding:6rem 4rem 5rem;
+  }
+  #all-projects-page.open { display:block; }
+  .ap-nav { position:fixed; top:0; left:0; right:0; z-index:301;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:1.3rem 4rem; background:rgba(13,13,13,0.95);
+    backdrop-filter:blur(20px); border-bottom:1px solid var(--border); }
+  .ap-back { display:inline-flex; align-items:center; gap:0.5rem; font-family:var(--mono); font-size:0.72rem; color:var(--text-2); text-decoration:none; cursor:pointer; background:none; border:none; transition:color 0.2s; }
+  .ap-back:hover { color:var(--accent); }
+  .ap-nav-brand { font-family:var(--sans); font-size:0.9rem; font-weight:500; color:var(--text); }
+  .ap-nav-brand b { color:var(--accent); }
+
+  /* Category group */
+  .ap-group { margin-top:3rem; }
+  .ap-group-head {
+    display:flex; align-items:center; gap:1rem;
+    padding-bottom:1.2rem; border-bottom:1px solid var(--border);
+    margin-bottom:1.5rem;
+  }
+  .ap-cat-label { font-size:1.1rem; font-weight:600; color:var(--white); letter-spacing:-0.02em; }
+  .ap-cat-count { font-family:var(--mono); font-size:0.68rem; color:var(--text-3); padding:0.18rem 0.65rem; border:1px solid var(--border-light); border-radius:100px; }
+  .ap-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; }
+
+  /* All-projects smaller card */
+  .apcard {
+    background:var(--surface); border:1px solid var(--border-light);
+    border-radius:10px; overflow:hidden;
+    display:flex; flex-direction:column;
+    transition:transform 0.22s, border-color 0.22s;
+  }
+  .apcard:hover { transform:translateY(-4px); border-color:rgba(74,158,255,0.22); }
+  .apcard-img { width:100%; aspect-ratio:16/9; background:var(--surface2); overflow:hidden; }
+  .apcard-img img { width:100%; height:100%; object-fit:cover; object-position:top; display:block; transition:transform 0.4s; }
+  .apcard:hover .apcard-img img { transform:scale(1.05); }
+  .apcard-img.no-img { display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:0.6rem; color:var(--text-3); letter-spacing:0.1em; }
+  .apcard-body { padding:1.2rem; display:flex; flex-direction:column; flex:1; gap:0.65rem; }
+  .apcard-name { font-size:0.95rem; font-weight:600; color:var(--white); letter-spacing:-0.02em; line-height:1.25; }
+  .apcard-desc { font-size:0.78rem; color:var(--text-2); line-height:1.6; font-weight:300; flex:1; }
+  .apcard-tags { display:flex; flex-wrap:wrap; gap:0.35rem; }
+  .apcard-tag { font-family:var(--mono); font-size:0.58rem; padding:0.15rem 0.55rem; border-radius:3px; background:var(--surface2); border:1px solid var(--border); color:var(--text-3); }
+  .apcard-btns { display:flex; gap:0.6rem; margin-top:0.3rem; }
+  .apbtn-gh, .apbtn-live {
+    flex:1; display:inline-flex; align-items:center; justify-content:center; gap:0.35rem;
+    padding:0.45rem 0.7rem; border-radius:6px;
+    font-family:var(--sans); font-size:0.72rem; font-weight:500;
+    text-decoration:none; transition:all 0.2s;
+  }
+  .apbtn-gh { background:var(--surface2); border:1px solid var(--border-light); color:var(--text-2); }
+  .apbtn-gh:hover { border-color:var(--text-2); color:var(--text); }
+  .apbtn-live { background:var(--accent); border:1px solid var(--accent); color:#ffffff; }
+  .apbtn-live:hover { opacity:0.85; }
+  .apbtn-live.disabled { background:var(--surface2); border:1px solid var(--border); color:var(--text-3); pointer-events:none; }
+
+  @media(max-width:1100px){
+    .feat-grid { grid-template-columns:1fr 1fr; }
+    .ap-grid { grid-template-columns:1fr 1fr; }
+  }
+  @media(max-width:700px){
+    .feat-grid { grid-template-columns:1fr; }
+    .ap-grid { grid-template-columns:1fr; }
+    #all-projects-page { padding:5rem 1.5rem 3rem; }
+    .ap-nav { padding:1.1rem 1.5rem; }
+  }
+
+  /* EDUCATION */
+  #education { background:var(--surface); border-top:1px solid var(--border); }
+  .edu-list { margin-top:3rem; }
+  .edu-row { display:grid; grid-template-columns:160px 1fr 180px; gap:2.5rem; padding:2rem 0; border-bottom:1px solid var(--border); align-items:start; opacity:0; transform:translateX(-14px); transition:opacity 0.5s, transform 0.5s; }
+  .edu-row:first-child { border-top:1px solid var(--border); }
+  .edu-row.visible { opacity:1; transform:translateX(0); }
+  .edu-date { font-family:var(--mono); font-size:0.68rem; color:var(--text-3); padding-top:0.2rem; }
+  .edu-title { font-size:0.98rem; font-weight:500; color:var(--white); margin-bottom:0.3rem; }
+  .edu-sub { font-size:0.82rem; color:var(--text-2); margin-bottom:0.4rem; font-weight:300; }
+  .edu-note { font-family:var(--mono); font-size:0.68rem; color:var(--text-3); }
+  .edu-tag { font-family:var(--mono); font-size:0.63rem; color:var(--accent); background:var(--accent-dim); border:1px solid rgba(74,158,255,0.2); border-radius:100px; padding:0.22rem 0.7rem; display:inline-block; text-align:right; }
+
+  /* CERTS */
+  #certs { background:var(--bg); border-top:1px solid var(--border); }
+  .certs-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin-top:3rem; }
+  .ccard { background:var(--bg); padding:1.8rem; transition:background 0.2s; }
+  .ccard:hover { background:var(--surface); }
+  .cissuer { font-family:var(--mono); font-size:0.63rem; color:var(--accent); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.8rem; }
+  .cname { font-size:0.9rem; font-weight:500; color:var(--white); margin-bottom:0.4rem; line-height:1.35; }
+  .cdate { font-family:var(--mono); font-size:0.65rem; color:var(--text-3); }
+
+  /* CONTACT */
+  #contact { background:var(--bg); border-top:1px solid var(--border); padding-bottom:0; }
+  .contact-big { font-size:clamp(4.5rem,12vw,11rem); font-weight:300; letter-spacing:-0.04em; color:var(--white); line-height:0.9; margin:1.5rem 0 3rem; display:flex; align-items:flex-end; gap:0.3em; flex-wrap:wrap; }
+  .arrow-circle { display:inline-flex; width:clamp(3.5rem,7vw,6rem); height:clamp(3.5rem,7vw,6rem); border:1.5px solid var(--border-light); border-radius:50%; align-items:center; justify-content:center; text-decoration:none; color:var(--accent); font-size:clamp(1.2rem,2.5vw,2rem); transition:background 0.25s, transform 0.25s; flex-shrink:0; margin-bottom:0.4rem; }
+  .arrow-circle:hover { background:var(--accent-dim); transform:rotate(-15deg) scale(1.05); }
+  .contact-row { display:flex; justify-content:space-between; align-items:flex-start; padding:2.5rem 0; border-top:1px solid var(--border); gap:3rem; flex-wrap:wrap; }
+  .contact-tagline { font-size:0.95rem; color:var(--text-2); font-weight:300; max-width:360px; line-height:1.68; }
+  .clinks { display:flex; gap:2rem; align-items:center; flex-wrap:wrap; }
+  .clink { display:flex; align-items:center; gap:0.45rem; font-family:var(--mono); font-size:0.75rem; color:var(--text-2); text-decoration:none; transition:color 0.2s; }
+  .clink:hover { color:var(--accent); }
+  .clink svg { width:13px; height:13px; fill:currentColor; flex-shrink:0; }
+  .cform-section { margin-top:3rem; padding-top:3rem; border-top:1px solid var(--border); display:grid; grid-template-columns:1fr 1fr; gap:6rem; }
+  .cform-label { font-size:1.4rem; font-weight:300; color:var(--text-2); letter-spacing:-0.02em; }
+  .cform-label strong { color:var(--white); font-weight:500; }
+  .cform { display:flex; flex-direction:column; gap:1rem; }
+  .fg { display:flex; flex-direction:column; gap:0.38rem; }
+  .fg label { font-family:var(--mono); font-size:0.62rem; color:var(--text-3); letter-spacing:0.1em; text-transform:uppercase; }
+  .fg input, .fg textarea { background:var(--surface); border:1px solid var(--border-light); color:var(--text); font-family:var(--sans); font-size:0.88rem; font-weight:300; padding:0.8rem 1rem; border-radius:6px; outline:none; transition:border-color 0.2s; }
+  .fg input:focus, .fg textarea:focus { border-color:rgba(74,158,255,0.38); }
+  .fg input::placeholder, .fg textarea::placeholder { color:var(--text-3); }
+  .fg textarea { resize:vertical; min-height:115px; }
+  #fs { display:none; font-family:var(--mono); font-size:0.75rem; color:var(--accent); padding:0.65rem 1rem; border:1px solid rgba(74,158,255,0.22); border-radius:6px; background:var(--accent-dim); }
+
+  /* FOOTER */
+  footer { background:var(--surface); border-top:1px solid var(--border); padding:1.8rem 4rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+  footer p { font-family:var(--mono); font-size:0.65rem; color:var(--text-3); }
+  footer span { color:var(--text-2); }
+  .flinks { display:flex; gap:1.5rem; }
+  .flinks a { font-family:var(--mono); font-size:0.65rem; color:var(--text-3); text-decoration:none; transition:color 0.2s; }
+  .flinks a:hover { color:var(--text); }
+
+  /* MOBILE MENU */
+  .mmenu { display:none; position:fixed; inset:0; background:rgba(13,13,13,0.97); z-index:199; flex-direction:column; align-items:center; justify-content:center; gap:2rem; backdrop-filter:blur(20px); }
+  .mmenu.open { display:flex; }
+  .mmenu a { font-family:var(--sans); font-size:1.8rem; font-weight:300; color:var(--text-2); text-decoration:none; letter-spacing:-0.03em; transition:color 0.2s; }
+  .mmenu a:hover { color:var(--white); }
+  .mclose { position:absolute; top:2rem; right:4rem; font-size:1rem; color:var(--text-3); cursor:pointer; background:none; border:none; font-family:var(--sans); font-weight:500; }
+
+  /* RESPONSIVE */
+  @media(max-width:1100px){
+    .skills-wrap { grid-template-columns:1fr; gap:2.5rem; }
+    .skills-left { position:static; }
+    .prow { grid-template-columns:55px 1fr; }
+    .ptags,.plink { display:none; }
+    .edu-row { grid-template-columns:120px 1fr; }
+    .edu-tag { display:none; }
+    .cform-section { grid-template-columns:1fr; gap:2.5rem; }
+  }
+  @media(max-width:800px){
+    nav { padding:1.1rem 1.5rem; }
+    .nav-links { display:none; }
+    .nav-burger { display:flex; }
+    section { padding:5rem 1.5rem; }
+    #hero { padding:0 1.5rem 4rem; }
+    .about-grid { grid-template-columns:1fr; gap:3rem; }
+    .certs-grid { grid-template-columns:1fr 1fr; }
+    .contact-big { font-size:clamp(3rem,17vw,6.5rem); }
+    .contact-row { flex-direction:column; gap:2rem; }
+    .clinks { gap:1.2rem; flex-direction:column; align-items:flex-start; }
+    .hero-bottom { flex-direction:column; align-items:flex-start; }
+    .prow:hover { margin:0; padding-left:0; padding-right:0; }
+    .edu-row { grid-template-columns:1fr; gap:0.4rem; }
+    footer { padding:1.5rem; flex-direction:column; align-items:flex-start; }
+    .mclose { right:1.5rem; }
+  }
+  @media(max-width:500px){
+    .certs-grid { grid-template-columns:1fr; }
+    .hero-actions { flex-direction:column; align-items:flex-start; }
+    .stats { grid-template-columns:1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#hero">Ayushman<b>.</b></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#certs">Certifications</a></li>
+    <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+  </ul>
+  <button class="nav-burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mmenu" id="mobileMenu">
+  <button class="mclose" onclick="toggleMenu()">Close</button>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#skills" onclick="toggleMenu()">Skills</a>
+  <a href="#projects" onclick="toggleMenu()">Projects</a>
+  <a href="#education" onclick="toggleMenu()">Education</a>
+  <a href="#certs" onclick="toggleMenu()">Certifications</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-noise"></div>
+  <div class="hero-status">Available for opportunities</div>
+  <h1 class="hero-headline">
+    Ayushman<br/>
+    <em>Satapathy</em><b>.</b>
+  </h1>
+  <div class="hero-bottom">
+    <p class="hero-desc">
+      <strong>AI/ML Developer, Data Analyst &amp; Full-Stack Builder</strong> crafting intelligent systems, predictive models, and data-driven solutions that create real impact.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-p">View Projects &nbsp;&#8594;</a>
+      <a href="#contact" class="btn-g">Let's Connect</a>
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="scroll-bar"></div><span>scroll</span></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="eyebrow">01 &mdash; About</p>
+  <h2 class="sec-head">Who I <em>Am</em></h2>
+  <div class="rule"></div>
+  <div class="about-grid">
+    <div class="reveal">
+      <p class="about-p">I'm <strong>Ayushman Satapathy</strong>, a Computer Applications student at Lovely Professional University with a deep focus on building AI-powered systems that solve real-world problems.</p>
+      <p class="about-p">My work spans <strong>machine learning</strong>, <strong>deep learning</strong>, <strong>data analytics</strong>, and <strong>full-stack web development</strong>. From real-time object detection to AI-driven analytics pipelines, I bridge the gap between complex data and impactful outcomes.</p>
+      <p class="about-p">As a <strong>Data Analyst</strong>, I apply exploratory data analysis, risk profiling, and business storytelling to translate raw datasets into strategic decisions. I believe in code that is not just functional &mdash; but precise and intentional.</p>
+      <div class="stats">
+        <div class="stat reveal d1"><div class="snum">9<span>+</span></div><div class="slabel">Projects Built</div></div>
+        <div class="stat reveal d2"><div class="snum">9<span>+</span></div><div class="slabel">Certifications</div></div>
+        <div class="stat reveal d1"><div class="snum">10<span>+</span></div><div class="slabel">Technologies</div></div>
+        <div class="stat reveal d2"><div class="snum">&infin;</div><div class="slabel">Curiosity</div></div>
+      </div>
+    </div>
+    <div class="reveal d2">
+      <div class="terminal-card">
+        <div class="tbar"><div class="td"></div><div class="td"></div><div class="td"></div></div>
+        <div class="tbody">
+          <div class="tl"><span class="tk">const</span> <span class="tv">dev</span> = {</div>
+          <div class="tl">&nbsp;&nbsp;name: <span class="ts">"Ayushman Satapathy"</span>,</div>
+          <div class="tl">&nbsp;&nbsp;role: <span class="ts">"AI/ML Developer &amp; Data Analyst"</span>,</div>
+          <div class="tl">&nbsp;&nbsp;location: <span class="ts">"Bhubaneshwar, Odisha"</span>,</div>
+          <div class="tl">&nbsp;&nbsp;focus: [</div>
+          <div class="tl">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ts">"Machine Learning"</span>,</div>
+          <div class="tl">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ts">"Data Analytics"</span>,</div>
+          <div class="tl">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ts">"Deep Learning"</span>,</div>
+          <div class="tl">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ts">"Web Development"</span></div>
+          <div class="tl">&nbsp;&nbsp;],</div>
+          <div class="tl">&nbsp;&nbsp;available: <span class="tk">true</span></div>
+          <div class="tl">};<span class="tc"></span></div>
+        </div>
+      </div>
+      <div class="avail">Open to internships &amp; collaborations</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="eyebrow">02 &mdash; Skills</p>
+  <h2 class="sec-head">Tech <em>Stack</em></h2>
+  <div class="rule"></div>
+  <div class="skills-wrap">
+    <div class="skills-left reveal">
+      <p>A working toolkit built through hands-on projects spanning languages, AI frameworks, data tooling, and analytics methodologies.</p>
+    </div>
+    <div class="accordion reveal d1">
+      <div class="acc-item">
+        <div class="acc-head open" onclick="toggleAcc(this)">Languages <span class="acc-arr">&#9654;</span></div>
+        <div class="acc-body open"><div class="tags">
+          <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">C</span><span class="tag">C++</span><span class="tag">Java</span>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head" onclick="toggleAcc(this)">AI &amp; Machine Learning <span class="acc-arr">&#9654;</span></div>
+        <div class="acc-body"><div class="tags">
+          <span class="tag">TensorFlow</span><span class="tag">Scikit-Learn</span><span class="tag">OpenCV</span><span class="tag">YOLOv5/v8</span><span class="tag">CNN</span><span class="tag">XGBoost</span><span class="tag">Deep Learning</span>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head" onclick="toggleAcc(this)">Data &amp; Visualization <span class="acc-arr">&#9654;</span></div>
+        <div class="acc-body"><div class="tags">
+          <span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head" onclick="toggleAcc(this)">Data Analytics <span class="acc-arr">&#9654;</span></div>
+        <div class="acc-body"><div class="tags">
+          <span class="tag">Exploratory Data Analysis</span><span class="tag">Risk Profiling</span><span class="tag">Predictive Modeling</span><span class="tag">Data Storytelling</span><span class="tag">Business Reporting</span><span class="tag">SQL</span>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head" onclick="toggleAcc(this)">Tools &amp; Platforms <span class="acc-arr">&#9654;</span></div>
+        <div class="acc-body"><div class="tags">
+          <span class="tag">GitHub</span><span class="tag">Docker</span><span class="tag">MongoDB</span><span class="tag">REST API</span><span class="tag">Streamlit</span>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head" onclick="toggleAcc(this)">Soft Skills <span class="acc-arr">&#9654;</span></div>
+        <div class="acc-body"><div class="tags">
+          <span class="tag">Leadership</span><span class="tag">Communication</span><span class="tag">Problem-Solving</span><span class="tag">Adaptability</span><span class="tag">Teamwork</span>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS — FEATURED (main page) -->
+<section id="projects">
+  <p class="eyebrow">03 &mdash; Projects</p>
+  <h2 class="sec-head">Featured <em>Work</em></h2>
+
+  <div class="feat-grid">
+
+    <!-- Card 1: AI Content Moderation -->
+    <div class="pcard reveal d1">
+      <div class="pcard-img">
+        <!-- AI/NLP themed SVG illustration -->
+        <svg viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#060d1f"/><stop offset="100%" stop-color="#0d1f3c"/></linearGradient>
+            <linearGradient id="ac1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#4a9eff"/><stop offset="100%" stop-color="#a0c020"/></linearGradient>
+          </defs>
+          <rect width="480" height="270" fill="url(#bg1)"/>
+          <!-- Grid lines -->
+          <line x1="0" y1="45" x2="480" y2="45" stroke="#1a2a4a" stroke-width="1"/>
+          <line x1="0" y1="90" x2="480" y2="90" stroke="#1a2a4a" stroke-width="1"/>
+          <line x1="0" y1="135" x2="480" y2="135" stroke="#1a2a4a" stroke-width="1"/>
+          <line x1="0" y1="180" x2="480" y2="180" stroke="#1a2a4a" stroke-width="1"/>
+          <line x1="0" y1="225" x2="480" y2="225" stroke="#1a2a4a" stroke-width="1"/>
+          <!-- Chat bubbles -->
+          <rect x="30" y="30" width="200" height="38" rx="8" fill="#112244" stroke="#1e3a6e" stroke-width="1"/>
+          <text x="44" y="54" font-family="monospace" font-size="11" fill="#7dd3fc">msg: "great product!"</text>
+          <rect x="260" y="30" width="100" height="24" rx="12" fill="url(#ac1)"/>
+          <text x="272" y="47" font-family="monospace" font-size="10" fill="#0a0a0a" font-weight="bold">✓ SAFE</text>
+          <rect x="30" y="82" width="220" height="38" rx="8" fill="#112244" stroke="#1e3a6e" stroke-width="1"/>
+          <text x="44" y="106" font-family="monospace" font-size="11" fill="#7dd3fc">msg: "you are terrible"</text>
+          <rect x="260" y="82" width="108" height="24" rx="12" fill="#3a1a1a" stroke="#ff5f56" stroke-width="1"/>
+          <text x="272" y="99" font-family="monospace" font-size="10" fill="#ff5f56">⚠ FLAGGED</text>
+          <rect x="30" y="134" width="190" height="38" rx="8" fill="#112244" stroke="#1e3a6e" stroke-width="1"/>
+          <text x="44" y="158" font-family="monospace" font-size="11" fill="#7dd3fc">msg: "love this place!"</text>
+          <rect x="260" y="134" width="100" height="24" rx="12" fill="url(#ac1)"/>
+          <text x="272" y="151" font-family="monospace" font-size="10" fill="#0a0a0a" font-weight="bold">✓ SAFE</text>
+          <!-- NLP label -->
+          <text x="30" y="210" font-family="monospace" font-size="9" fill="#3a5a8a" letter-spacing="2">NLP · CLASSIFICATION · API</text>
+          <!-- Accent bar -->
+          <rect x="0" y="260" width="480" height="4" fill="url(#ac1)" opacity="0.7"/>
+          <!-- Corner label -->
+          <rect x="370" y="198" width="80" height="22" rx="4" fill="#0d2040" stroke="#1e3a6e" stroke-width="1"/>
+          <text x="382" y="213" font-family="monospace" font-size="9" fill="#7dd3fc">AI Moderation</text>
+        </svg>
+      </div>
+      <div class="pcard-body">
+        <span class="pcard-cat">Machine Learning · NLP</span>
+        <div class="pcard-name">AI Content Moderation System</div>
+        <div class="pcard-desc">Monitors and classifies social media comments into hate categories using NLP and AI APIs. Helps platforms maintain safe online communities at scale.</div>
+        <div class="pcard-tags">
+          <span class="pcard-tag">Python</span><span class="pcard-tag">NLP</span><span class="pcard-tag">API</span><span class="pcard-tag">ML</span>
+        </div>
+        <div class="pcard-btns">
+          <a class="pbtn-gh" href="https://github.com/ayushmansatapathy/ai-content-moderation-system" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.04c-3.34.72-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.01 2.04.14 3 .4 2.28-1.55 3.3-1.23 3.3-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a class="pbtn-live" href="https://github.com/ayushmansatapathy/ai-content-moderation-system" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View Live
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Real-Time Object Detection -->
+    <div class="pcard reveal d2">
+      <div class="pcard-img">
+        <svg viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0a0f0a"/><stop offset="100%" stop-color="#0f200f"/></linearGradient>
+            <linearGradient id="ac2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#4a9eff"/><stop offset="100%" stop-color="#2a7ee0"/></linearGradient>
+          </defs>
+          <rect width="480" height="270" fill="url(#bg2)"/>
+          <!-- Camera frame -->
+          <rect x="20" y="20" width="440" height="230" rx="4" fill="none" stroke="#1a3a1a" stroke-width="1.5"/>
+          <!-- Detection boxes -->
+          <rect x="60" y="55" width="110" height="130" rx="2" fill="none" stroke="#4a9eff" stroke-width="2"/>
+          <rect x="60" y="55" width="80" height="18" rx="2" fill="#4a9eff"/>
+          <text x="68" y="68" font-family="monospace" font-size="10" fill="#0a0a0a" font-weight="bold">Person 98%</text>
+          <rect x="200" y="80" width="90" height="80" rx="2" fill="none" stroke="#60d4f0" stroke-width="2"/>
+          <rect x="200" y="80" width="68" height="16" rx="2" fill="#60d4f0"/>
+          <text x="207" y="92" font-family="monospace" font-size="9" fill="#0a0a0a" font-weight="bold">Car 94%</text>
+          <rect x="320" y="100" width="100" height="70" rx="2" fill="none" stroke="#f0a060" stroke-width="2"/>
+          <rect x="320" y="100" width="72" height="16" rx="2" fill="#f0a060"/>
+          <text x="327" y="112" font-family="monospace" font-size="9" fill="#0a0a0a" font-weight="bold">Bike 87%</text>
+          <!-- Scan lines -->
+          <line x1="20" y1="140" x2="460" y2="140" stroke="#4a9eff" stroke-width="0.5" opacity="0.3"/>
+          <!-- Corner markers -->
+          <path d="M30 30 L30 42 M30 30 L42 30" stroke="#4a9eff" stroke-width="2" fill="none"/>
+          <path d="M450 30 L450 42 M450 30 L438 30" stroke="#4a9eff" stroke-width="2" fill="none"/>
+          <path d="M30 240 L30 228 M30 240 L42 240" stroke="#4a9eff" stroke-width="2" fill="none"/>
+          <path d="M450 240 L450 228 M450 240 L438 240" stroke="#4a9eff" stroke-width="2" fill="none"/>
+          <!-- Stats bar -->
+          <text x="30" y="218" font-family="monospace" font-size="9" fill="#4a8a4a">FPS: 42</text>
+          <text x="100" y="218" font-family="monospace" font-size="9" fill="#4a8a4a">Objects: 3</text>
+          <text x="190" y="218" font-family="monospace" font-size="9" fill="#4a8a4a">Model: YOLOv8</text>
+          <rect x="0" y="260" width="480" height="4" fill="url(#ac2)" opacity="0.7"/>
+        </svg>
+      </div>
+      <div class="pcard-body">
+        <span class="pcard-cat">Machine Learning · Computer Vision</span>
+        <div class="pcard-name">Real-Time Object Detection</div>
+        <div class="pcard-desc">Detects multiple objects in live video streams using YOLO architecture. High-speed, high-accuracy detection for surveillance and automation systems.</div>
+        <div class="pcard-tags">
+          <span class="pcard-tag">YOLOv5/v8</span><span class="pcard-tag">OpenCV</span><span class="pcard-tag">Python</span><span class="pcard-tag">Deep Learning</span>
+        </div>
+        <div class="pcard-btns">
+          <a class="pbtn-gh" href="https://github.com/ayushmansatapathy/yolo-object-detection" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.04c-3.34.72-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.01 2.04.14 3 .4 2.28-1.55 3.3-1.23 3.3-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a class="pbtn-live" href="https://github.com/ayushmansatapathy/yolo-object-detection" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View Live
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Hyperliquid Market Sentiment Analysis -->
+    <div class="pcard reveal d3">
+      <div class="pcard-img">
+        <svg viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="hbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0a0c14"/><stop offset="100%" stop-color="#0d1020"/></linearGradient>
+            <linearGradient id="hfear" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#ef4444"/><stop offset="100%" stop-color="#f97316"/></linearGradient>
+            <linearGradient id="hgreed" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#4a9eff"/><stop offset="100%" stop-color="#4a9eff"/></linearGradient>
+            <linearGradient id="hline1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a9eff" stop-opacity="0.9"/><stop offset="100%" stop-color="#4a9eff" stop-opacity="0.1"/></linearGradient>
+            <linearGradient id="hline2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ef4444" stop-opacity="0.7"/><stop offset="100%" stop-color="#ef4444" stop-opacity="0.05"/></linearGradient>
+          </defs>
+          <rect width="480" height="270" fill="url(#hbg)"/>
+          <!-- Header bar -->
+          <rect x="16" y="14" width="448" height="30" rx="6" fill="#111827" stroke="#1e293b" stroke-width="1"/>
+          <circle cx="30" cy="29" r="4.5" fill="#4a9eff"/>
+          <text x="42" y="33" font-family="monospace" font-size="9.5" fill="#94a3b8">Hyperliquid · Fear &amp; Greed Index vs Trader Behavior</text>
+          <!-- Gauge arc background -->
+          <path d="M240 168 m-90 0 a90 90 0 0 1 180 0" fill="none" stroke="#1e293b" stroke-width="18" stroke-linecap="round"/>
+          <!-- Fear zone (red) -->
+          <path d="M240 168 m-90 0 a90 90 0 0 1 45 -77.9" fill="none" stroke="url(#hfear)" stroke-width="18" stroke-linecap="round" opacity="0.85"/>
+          <!-- Greed zone (green) -->
+          <path d="M240 168 m45 -77.9 a90 90 0 0 1 45 77.9" fill="none" stroke="url(#hgreed)" stroke-width="18" stroke-linecap="round" opacity="0.85"/>
+          <!-- Gauge needle -->
+          <line x1="240" y1="168" x2="192" y2="100" stroke="#f8fafc" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="240" cy="168" r="6" fill="#1e293b" stroke="#4a9eff" stroke-width="2"/>
+          <!-- Labels -->
+          <text x="136" y="182" font-family="monospace" font-size="8" fill="#ef4444" text-anchor="middle">FEAR</text>
+          <text x="344" y="182" font-family="monospace" font-size="8" fill="#4a9eff" text-anchor="middle">GREED</text>
+          <text x="240" y="192" font-family="monospace" font-size="9" fill="#cbd5e1" text-anchor="middle" font-weight="bold">38 — FEAR</text>
+          <!-- KPI row -->
+          <rect x="16" y="54" width="100" height="46" rx="5" fill="#111827" stroke="#1e293b" stroke-width="1"/>
+          <text x="26" y="70" font-family="monospace" font-size="7" fill="#64748b">WIN RATE (FEAR)</text>
+          <text x="26" y="89" font-family="monospace" font-size="15" fill="#4a9eff" font-weight="bold">62%</text>
+          <rect x="126" y="54" width="100" height="46" rx="5" fill="#111827" stroke="#1e293b" stroke-width="1"/>
+          <text x="136" y="70" font-family="monospace" font-size="7" fill="#64748b">WIN RATE (GREED)</text>
+          <text x="136" y="89" font-family="monospace" font-size="15" fill="#ef4444" font-weight="bold">48%</text>
+          <rect x="236" y="54" width="100" height="46" rx="5" fill="#111827" stroke="#1e293b" stroke-width="1"/>
+          <text x="246" y="70" font-family="monospace" font-size="7" fill="#64748b">LEVERAGE ↑</text>
+          <text x="246" y="89" font-family="monospace" font-size="15" fill="#f97316" font-weight="bold">+15%</text>
+          <rect x="346" y="54" width="118" height="46" rx="5" fill="#111827" stroke="#1e293b" stroke-width="1"/>
+          <text x="356" y="70" font-family="monospace" font-size="7" fill="#64748b">TRADE SIZE ↑</text>
+          <text x="356" y="89" font-family="monospace" font-size="15" fill="#f97316" font-weight="bold">+34.5%</text>
+          <!-- PnL comparison bars -->
+          <rect x="16" y="206" width="220" height="52" rx="5" fill="#111827" stroke="#1e293b" stroke-width="1"/>
+          <text x="26" y="220" font-family="monospace" font-size="7" fill="#64748b">AVG PnL COMPARISON</text>
+          <rect x="26" y="228" width="80" height="11" rx="3" fill="url(#hgreed)" opacity="0.9"/>
+          <text x="112" y="238" font-family="monospace" font-size="7.5" fill="#4a9eff">Fear: Higher</text>
+          <rect x="26" y="244" width="52" height="11" rx="3" fill="url(#hfear)" opacity="0.8"/>
+          <text x="84" y="254" font-family="monospace" font-size="7.5" fill="#ef4444">Greed: Lower</text>
+          <!-- Trader cluster tag -->
+          <rect x="246" y="206" width="218" height="52" rx="5" fill="#111827" stroke="#1e293b" stroke-width="1"/>
+          <text x="256" y="220" font-family="monospace" font-size="7" fill="#64748b">BEST TRADER PROFILE</text>
+          <text x="256" y="235" font-family="monospace" font-size="7.5" fill="#94a3b8">✔ Low frequency</text>
+          <text x="256" y="248" font-family="monospace" font-size="7.5" fill="#94a3b8">✔ Moderate leverage</text>
+          <text x="256" y="261" font-family="monospace" font-size="7.5" fill="#4a9eff">✔ Win rate &gt;50%</text>
+          <!-- Accent bottom bar -->
+          <rect x="0" y="266" width="480" height="4" fill="url(#hgreed)" opacity="0.7"/>
+        </svg>
+      </div>
+      <div class="pcard-body">
+        <span class="pcard-cat">Data Analytics · Trading · Sentiment Analysis</span>
+        <div class="pcard-name">Hyperliquid Market Sentiment Analysis</div>
+        <div class="pcard-desc">Analyzes how Fear &amp; Greed Index sentiment drives trader behavior and PnL on Hyperliquid — revealing that disciplined trading during fear outperforms greed-driven overconfidence.</div>
+        <div class="pcard-tags">
+          <span class="pcard-tag">Python</span><span class="pcard-tag">Pandas</span><span class="pcard-tag">PCA</span><span class="pcard-tag">EDA</span><span class="pcard-tag">Hyperliquid</span>
+        </div>
+        <div class="pcard-btns">
+          <a class="pbtn-gh" href="https://github.com/ayushmansatapathy" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.04c-3.34.72-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.01 2.04.14 3 .4 2.28-1.55 3.3-1.23 3.3-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a class="pbtn-live" href="https://github.com/ayushmansatapathy" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View Live
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /feat-grid -->
+
+  <div class="proj-footer reveal">
+    <button class="view-all-btn" onclick="openAllProjects()">View All Projects &nbsp;&#8594;</button>
+  </div>
+</section>
+
+<!-- ─── ALL PROJECTS OVERLAY ─── -->
+<div id="all-projects-page">
+  <nav class="ap-nav">
+    <button class="ap-back" onclick="closeAllProjects()">&#8592; &nbsp;Back</button>
+    <span class="ap-nav-brand">Ayushman<b>.</b></span>
+    <span style="font-family:var(--mono);font-size:0.68rem;color:var(--text-3)">All Projects</span>
+  </nav>
+
+  <p class="eyebrow" style="margin-top:1rem;">— Projects</p>
+  <h2 class="sec-head">All <em>Projects</em></h2>
+  <p style="font-size:0.88rem;color:var(--text-2);margin-top:0.5rem;font-weight:300;">A collection of things I've built</p>
+
+  <!-- GROUP: Machine Learning / AI -->
+  <div class="ap-group">
+    <div class="ap-group-head">
+      <span class="ap-cat-label">Machine Learning &amp; AI</span>
+      <span class="ap-cat-count">4 projects</span>
+    </div>
+    <div class="ap-grid">
+
+      <div class="apcard">
+        <div class="apcard-img">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="225" fill="#060d1f"/>
+            <rect x="15" y="15" width="185" height="30" rx="6" fill="#112244" stroke="#1e3a6e" stroke-width="1"/>
+            <text x="24" y="35" font-family="monospace" font-size="10" fill="#7dd3fc">msg: "great product!"</text>
+            <rect x="210" y="20" width="75" height="20" rx="10" fill="#4a9eff"/>
+            <text x="220" y="34" font-family="monospace" font-size="9" fill="#0a0a0a" font-weight="bold">✓ SAFE</text>
+            <rect x="15" y="57" width="185" height="30" rx="6" fill="#112244" stroke="#1e3a6e" stroke-width="1"/>
+            <text x="24" y="77" font-family="monospace" font-size="10" fill="#7dd3fc">msg: "you are terrible"</text>
+            <rect x="210" y="62" width="80" height="20" rx="10" fill="#3a1a1a" stroke="#ff5f56" stroke-width="1"/>
+            <text x="218" y="76" font-family="monospace" font-size="9" fill="#ff5f56">⚠ FLAGGED</text>
+            <rect x="15" y="99" width="175" height="30" rx="6" fill="#112244" stroke="#1e3a6e" stroke-width="1"/>
+            <text x="24" y="119" font-family="monospace" font-size="10" fill="#7dd3fc">msg: "love this!"</text>
+            <rect x="210" y="104" width="75" height="20" rx="10" fill="#4a9eff"/>
+            <text x="220" y="118" font-family="monospace" font-size="9" fill="#0a0a0a" font-weight="bold">✓ SAFE</text>
+            <text x="15" y="165" font-family="monospace" font-size="8" fill="#3a5a8a" letter-spacing="2">NLP · CLASSIFICATION · API</text>
+            <rect x="0" y="215" width="400" height="3" fill="#4a9eff" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="apcard-body">
+          <div class="apcard-name">AI Content Moderation System</div>
+          <div class="apcard-desc">Monitors and classifies social media comments into hate categories using NLP and AI APIs.</div>
+          <div class="apcard-tags"><span class="apcard-tag">Python</span><span class="apcard-tag">NLP</span><span class="apcard-tag">API</span></div>
+          <div class="apcard-btns">
+            <a class="apbtn-gh" href="https://github.com/ayushmansatapathy/ai-content-moderation-system" target="_blank">GitHub</a>
+            <a class="apbtn-live" href="https://github.com/ayushmansatapathy/ai-content-moderation-system" target="_blank">View Live</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="apcard">
+        <div class="apcard-img">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="225" fill="#0a0f0a"/>
+            <rect x="15" y="15" width="370" height="195" rx="4" fill="none" stroke="#1a3a1a" stroke-width="1.5"/>
+            <rect x="50" y="45" width="90" height="110" rx="2" fill="none" stroke="#4a9eff" stroke-width="2"/>
+            <rect x="50" y="45" width="65" height="15" rx="2" fill="#4a9eff"/>
+            <text x="56" y="56" font-family="monospace" font-size="9" fill="#0a0a0a" font-weight="bold">Person 98%</text>
+            <rect x="165" y="65" width="80" height="65" rx="2" fill="none" stroke="#60d4f0" stroke-width="2"/>
+            <rect x="165" y="65" width="55" height="14" rx="2" fill="#60d4f0"/>
+            <text x="170" y="76" font-family="monospace" font-size="8" fill="#0a0a0a" font-weight="bold">Car 94%</text>
+            <rect x="265" y="80" width="85" height="55" rx="2" fill="none" stroke="#f0a060" stroke-width="2"/>
+            <rect x="265" y="80" width="58" height="14" rx="2" fill="#f0a060"/>
+            <text x="270" y="91" font-family="monospace" font-size="8" fill="#0a0a0a" font-weight="bold">Bike 87%</text>
+            <line x1="15" y1="113" x2="385" y2="113" stroke="#4a9eff" stroke-width="0.5" opacity="0.3"/>
+            <text x="25" y="192" font-family="monospace" font-size="8" fill="#4a8a4a">FPS: 42 · Objects: 3 · YOLOv8</text>
+            <rect x="0" y="215" width="400" height="3" fill="#4a9eff" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="apcard-body">
+          <div class="apcard-name">Real-Time Object Detection</div>
+          <div class="apcard-desc">Detects multiple objects in live video streams using YOLO for surveillance and automation.</div>
+          <div class="apcard-tags"><span class="apcard-tag">YOLOv5/v8</span><span class="apcard-tag">OpenCV</span><span class="apcard-tag">Deep Learning</span></div>
+          <div class="apcard-btns">
+            <a class="apbtn-gh" href="https://github.com/ayushmansatapathy/yolo-object-detection" target="_blank">GitHub</a>
+            <a class="apbtn-live" href="https://github.com/ayushmansatapathy/yolo-object-detection" target="_blank">View Live</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="apcard">
+        <div class="apcard-img">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="225" fill="#0a0a12"/>
+            <!-- House icon -->
+            <polygon points="200,30 280,90 280,175 120,175 120,90" fill="#1a1a30" stroke="#2a2a50" stroke-width="1.5"/>
+            <polygon points="200,25 290,92 110,92" fill="#2a2a4a" stroke="#3a3a6a" stroke-width="1"/>
+            <rect x="160" y="120" width="40" height="55" rx="2" fill="#0a0a18"/>
+            <!-- Price tag -->
+            <rect x="240" y="50" width="120" height="45" rx="6" fill="#1a1a30" stroke="#2a2a50" stroke-width="1"/>
+            <text x="252" y="68" font-family="monospace" font-size="9" fill="#7dd3fc">Predicted</text>
+            <text x="252" y="85" font-family="monospace" font-size="13" fill="#4a9eff" font-weight="bold">$3,24,000</text>
+            <!-- Features -->
+            <rect x="20" y="140" width="90" height="22" rx="4" fill="#1a1a30" stroke="#2a2a50" stroke-width="1"/>
+            <text x="28" y="155" font-family="monospace" font-size="8" fill="#7dd3fc">3 BHK · 1850 sq ft</text>
+            <rect x="20" y="170" width="90" height="22" rx="4" fill="#1a1a30" stroke="#2a2a50" stroke-width="1"/>
+            <text x="28" y="185" font-family="monospace" font-size="8" fill="#7dd3fc">XGBoost · R²: 0.91</text>
+            <text x="20" y="210" font-family="monospace" font-size="8" fill="#3a3a6a" letter-spacing="1">HOUSING PRICE PREDICTION</text>
+            <rect x="0" y="215" width="400" height="3" fill="#4a9eff" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="apcard-body">
+          <div class="apcard-name">House Price Prediction</div>
+          <div class="apcard-desc">ML model predicting property prices based on location, size, rooms, and amenities.</div>
+          <div class="apcard-tags"><span class="apcard-tag">XGBoost</span><span class="apcard-tag">Scikit-Learn</span><span class="apcard-tag">Pandas</span></div>
+          <div class="apcard-btns">
+            <a class="apbtn-gh" href="https://github.com/ayushmansatapathy/housing-price-prediction" target="_blank">GitHub</a>
+            <a class="apbtn-live disabled" href="#">View Live</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="apcard">
+        <div class="apcard-img">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="225" fill="#0a0a12"/>
+            <!-- Sharp vs Blur -->
+            <rect x="20" y="25" width="170" height="130" rx="6" fill="#1a1a30" stroke="#2a2a50" stroke-width="1"/>
+            <text x="80" y="45" font-family="monospace" font-size="8" fill="#4a7a9a" text-anchor="middle">SHARP</text>
+            <!-- sharp grid pattern -->
+            <line x1="30" y1="55" x2="180" y2="55" stroke="#2a4a6a" stroke-width="1"/>
+            <line x1="30" y1="75" x2="180" y2="75" stroke="#2a4a6a" stroke-width="1"/>
+            <line x1="30" y1="95" x2="180" y2="95" stroke="#2a4a6a" stroke-width="1"/>
+            <line x1="30" y1="115" x2="180" y2="115" stroke="#2a4a6a" stroke-width="1"/>
+            <line x1="60" y1="55" x2="60" y2="145" stroke="#2a4a6a" stroke-width="1"/>
+            <line x1="100" y1="55" x2="100" y2="145" stroke="#2a4a6a" stroke-width="1"/>
+            <line x1="140" y1="55" x2="140" y2="145" stroke="#2a4a6a" stroke-width="1"/>
+            <rect x="35" y="35" width="50" height="18" rx="3" fill="#4a9eff"/>
+            <text x="41" y="48" font-family="monospace" font-size="8" fill="#0a0a0a" font-weight="bold">✓ Clear</text>
+            <!-- blur simulation -->
+            <rect x="210" y="25" width="170" height="130" rx="6" fill="#1a1a30" stroke="#2a2a50" stroke-width="1"/>
+            <text x="290" y="45" font-family="monospace" font-size="8" fill="#4a7a9a" text-anchor="middle">BLUR</text>
+            <filter id="blur1"><feGaussianBlur stdDeviation="3"/></filter>
+            <line x1="220" y1="55" x2="370" y2="55" stroke="#2a4a6a" stroke-width="3" filter="url(#blur1)"/>
+            <line x1="220" y1="75" x2="370" y2="75" stroke="#2a4a6a" stroke-width="3" filter="url(#blur1)"/>
+            <line x1="220" y1="95" x2="370" y2="95" stroke="#2a4a6a" stroke-width="3" filter="url(#blur1)"/>
+            <line x1="250" y1="55" x2="250" y2="145" stroke="#2a4a6a" stroke-width="3" filter="url(#blur1)"/>
+            <line x1="290" y1="55" x2="290" y2="145" stroke="#2a4a6a" stroke-width="3" filter="url(#blur1)"/>
+            <rect x="218" y="35" width="58" height="18" rx="3" fill="#3a1a1a" stroke="#ff5f56" stroke-width="1"/>
+            <text x="225" y="48" font-family="monospace" font-size="8" fill="#ff5f56">⚠ Blurred</text>
+            <!-- CNN label -->
+            <text x="20" y="188" font-family="monospace" font-size="8" fill="#3a3a6a" letter-spacing="1">CNN · TENSORFLOW · CLASSIFICATION</text>
+            <text x="20" y="205" font-family="monospace" font-size="8" fill="#4a5a4a">Accuracy: 96.3%</text>
+            <rect x="0" y="215" width="400" height="3" fill="#4a9eff" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="apcard-body">
+          <div class="apcard-name">Blur Image Classifier</div>
+          <div class="apcard-desc">AI-powered CNN classifier distinguishing blurred vs. sharp images for photography pipelines and quality control.</div>
+          <div class="apcard-tags"><span class="apcard-tag">TensorFlow</span><span class="apcard-tag">CNN</span><span class="apcard-tag">OpenCV</span></div>
+          <div class="apcard-btns">
+            <a class="apbtn-gh" href="https://github.com/ayushmansatapathy/bankruptcy-prediction" target="_blank">GitHub</a>
+            <a class="apbtn-live disabled" href="#">View Live</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /ap-grid ML -->
+  </div>
+
+  <!-- GROUP: Data Analysis -->
+  <div class="ap-group">
+    <div class="ap-group-head">
+      <span class="ap-cat-label">Data Analysis &amp; Visualization</span>
+      <span class="ap-cat-count">5 projects</span>
+    </div>
+    <div class="ap-grid">
+
+      <!-- Hyperliquid apcard -->
+      <div class="apcard">
+        <div class="apcard-img">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="ahbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0a0c14"/><stop offset="100%" stop-color="#0d1020"/></linearGradient>
+              <linearGradient id="ahfear" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#ef4444"/><stop offset="100%" stop-color="#f97316"/></linearGradient>
+              <linearGradient id="ahgreed" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#4a9eff"/><stop offset="100%" stop-color="#4a9eff"/></linearGradient>
+            </defs>
+            <rect width="400" height="225" fill="url(#ahbg)"/>
+            <rect x="12" y="12" width="376" height="24" rx="5" fill="#111827" stroke="#1e293b" stroke-width="1"/>
+            <circle cx="24" cy="24" r="4" fill="#4a9eff"/>
+            <text x="34" y="28" font-family="monospace" font-size="8.5" fill="#94a3b8">Hyperliquid · Fear &amp; Greed Analysis</text>
+            <!-- Gauge arc -->
+            <path d="M200 155 m-75 0 a75 75 0 0 1 150 0" fill="none" stroke="#1e293b" stroke-width="15" stroke-linecap="round"/>
+            <path d="M200 155 m-75 0 a75 75 0 0 1 37.5 -64.9" fill="none" stroke="url(#ahfear)" stroke-width="15" stroke-linecap="round" opacity="0.85"/>
+            <path d="M200 155 m37.5 -64.9 a75 75 0 0 1 37.5 64.9" fill="none" stroke="url(#ahgreed)" stroke-width="15" stroke-linecap="round" opacity="0.85"/>
+            <line x1="200" y1="155" x2="160" y2="98" stroke="#f8fafc" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="200" cy="155" r="5" fill="#1e293b" stroke="#4a9eff" stroke-width="1.5"/>
+            <text x="118" y="170" font-family="monospace" font-size="7" fill="#ef4444" text-anchor="middle">FEAR</text>
+            <text x="282" y="170" font-family="monospace" font-size="7" fill="#4a9eff" text-anchor="middle">GREED</text>
+            <text x="200" y="178" font-family="monospace" font-size="8" fill="#cbd5e1" text-anchor="middle" font-weight="bold">38 — FEAR</text>
+            <!-- KPI row -->
+            <rect x="12" y="44" width="85" height="38" rx="4" fill="#111827" stroke="#1e293b" stroke-width="1"/>
+            <text x="20" y="57" font-family="monospace" font-size="6" fill="#64748b">WIN (FEAR)</text>
+            <text x="20" y="73" font-family="monospace" font-size="13" fill="#4a9eff" font-weight="bold">62%</text>
+            <rect x="106" y="44" width="85" height="38" rx="4" fill="#111827" stroke="#1e293b" stroke-width="1"/>
+            <text x="114" y="57" font-family="monospace" font-size="6" fill="#64748b">WIN (GREED)</text>
+            <text x="114" y="73" font-family="monospace" font-size="13" fill="#ef4444" font-weight="bold">48%</text>
+            <rect x="200" y="44" width="85" height="38" rx="4" fill="#111827" stroke="#1e293b" stroke-width="1"/>
+            <text x="208" y="57" font-family="monospace" font-size="6" fill="#64748b">LEVERAGE ↑</text>
+            <text x="208" y="73" font-family="monospace" font-size="13" fill="#f97316" font-weight="bold">+15%</text>
+            <rect x="294" y="44" width="94" height="38" rx="4" fill="#111827" stroke="#1e293b" stroke-width="1"/>
+            <text x="302" y="57" font-family="monospace" font-size="6" fill="#64748b">TRADE SIZE ↑</text>
+            <text x="302" y="73" font-family="monospace" font-size="13" fill="#f97316" font-weight="bold">+34.5%</text>
+            <!-- Best profile -->
+            <rect x="12" y="190" width="376" height="28" rx="4" fill="#111827" stroke="#1e293b" stroke-width="1"/>
+            <text x="20" y="204" font-family="monospace" font-size="7.5" fill="#94a3b8">✔ Low freq  ✔ Moderate leverage  ✔ Win rate &gt;50%</text>
+            <text x="320" y="204" font-family="monospace" font-size="7" fill="#64748b">Best Profile</text>
+            <rect x="0" y="215" width="400" height="3" fill="url(#ahgreed)" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="apcard-body">
+          <div class="apcard-name">Hyperliquid Market Sentiment Analysis</div>
+          <div class="apcard-desc">Fear &amp; Greed Index vs trader behavior on Hyperliquid — win rates, PnL, leverage, and trader clustering via PCA.</div>
+          <div class="apcard-tags"><span class="apcard-tag">Python</span><span class="apcard-tag">Pandas</span><span class="apcard-tag">PCA</span><span class="apcard-tag">EDA</span></div>
+          <div class="apcard-btns">
+            <a class="apbtn-gh" href="https://github.com/ayushmansatapathy" target="_blank">GitHub</a>
+            <a class="apbtn-live disabled" href="#">View Live</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="apcard">
+        <div class="apcard-img">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="bg3b" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0a0d0a"/><stop offset="100%" stop-color="#111a0d"/></linearGradient></defs>
+            <rect width="400" height="225" fill="url(#bg3b)"/>
+            <rect x="15" y="12" width="370" height="26" rx="5" fill="#111d0d" stroke="#1e3a1e" stroke-width="1"/>
+            <circle cx="27" cy="25" r="4" fill="#4a9eff"/>
+            <text x="38" y="29" font-family="monospace" font-size="9" fill="#7aaa50">E-Commerce Analytics Dashboard</text>
+            <rect x="15" y="48" width="80" height="42" rx="4" fill="#111d0d" stroke="#1e3a1e" stroke-width="1"/>
+            <text x="22" y="61" font-family="monospace" font-size="7" fill="#4a7a3a">REVENUE</text>
+            <text x="22" y="79" font-family="monospace" font-size="11" fill="#4a9eff" font-weight="bold">$84K</text>
+            <rect x="105" y="48" width="80" height="42" rx="4" fill="#111d0d" stroke="#1e3a1e" stroke-width="1"/>
+            <text x="112" y="61" font-family="monospace" font-size="7" fill="#4a7a3a">ORDERS</text>
+            <text x="112" y="79" font-family="monospace" font-size="11" fill="#60d4f0" font-weight="bold">2,341</text>
+            <rect x="195" y="48" width="80" height="42" rx="4" fill="#111d0d" stroke="#1e3a1e" stroke-width="1"/>
+            <text x="202" y="61" font-family="monospace" font-size="7" fill="#4a7a3a">USERS</text>
+            <text x="202" y="79" font-family="monospace" font-size="11" fill="#f0c060" font-weight="bold">14.8K</text>
+            <rect x="285" y="48" width="100" height="42" rx="4" fill="#111d0d" stroke="#1e3a1e" stroke-width="1"/>
+            <text x="292" y="61" font-family="monospace" font-size="7" fill="#4a7a3a">CONVERSION</text>
+            <text x="292" y="79" font-family="monospace" font-size="11" fill="#f09060" font-weight="bold">3.62%</text>
+            <!-- bars -->
+            <rect x="15" y="100" width="240" height="110" rx="4" fill="#111d0d" stroke="#1e3a1e" stroke-width="1"/>
+            <text x="23" y="114" font-family="monospace" font-size="7" fill="#4a7a3a">MONTHLY REVENUE</text>
+            <rect x="26" y="158" width="18" height="37" rx="1" fill="#4a9eff" opacity="0.5"/>
+            <rect x="54" y="143" width="18" height="52" rx="1" fill="#4a9eff" opacity="0.6"/>
+            <rect x="82" y="150" width="18" height="45" rx="1" fill="#4a9eff" opacity="0.65"/>
+            <rect x="110" y="133" width="18" height="62" rx="1" fill="#4a9eff" opacity="0.75"/>
+            <rect x="138" y="126" width="18" height="69" rx="1" fill="#4a9eff" opacity="0.85"/>
+            <rect x="166" y="118" width="18" height="77" rx="1" fill="#4a9eff" opacity="0.95"/>
+            <rect x="194" y="121" width="18" height="74" rx="1" fill="#4a9eff"/>
+            <!-- pie -->
+            <rect x="265" y="100" width="135" height="110" rx="4" fill="#111d0d" stroke="#1e3a1e" stroke-width="1"/>
+            <text x="273" y="114" font-family="monospace" font-size="7" fill="#4a7a3a">SEGMENTS</text>
+            <circle cx="332" cy="165" r="38" fill="none" stroke="#1e3a1e" stroke-width="1"/>
+            <path d="M332 165 L332 127 A38 38 0 0 1 365 184 Z" fill="#4a9eff" opacity="0.8"/>
+            <path d="M332 165 L365 184 A38 38 0 0 1 299 184 Z" fill="#60d4f0" opacity="0.7"/>
+            <path d="M332 165 L299 184 A38 38 0 0 1 332 127 Z" fill="#f0c060" opacity="0.6"/>
+            <rect x="0" y="215" width="400" height="3" fill="#4a9eff" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="apcard-body">
+          <div class="apcard-name">E-Commerce Analytics Dashboard</div>
+          <div class="apcard-desc">Deep insights into e-commerce data — revenue, customer segmentation, and product performance via Streamlit.</div>
+          <div class="apcard-tags"><span class="apcard-tag">Python</span><span class="apcard-tag">Streamlit</span><span class="apcard-tag">Pandas</span></div>
+          <div class="apcard-btns">
+            <a class="apbtn-gh" href="https://github.com/ayushmansatapathy" target="_blank">GitHub</a>
+            <a class="apbtn-live disabled" href="#">View Live</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="apcard">
+        <div class="apcard-img">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="225" fill="#0d0a0a"/>
+            <text x="20" y="35" font-family="monospace" font-size="10" fill="#aa5050">Bankruptcy Risk Predictor</text>
+            <!-- Risk meter -->
+            <rect x="20" y="50" width="360" height="30" rx="15" fill="#1a0d0d" stroke="#3a1a1a" stroke-width="1"/>
+            <rect x="22" y="52" width="240" height="26" rx="13" fill="#4a9eff" opacity="0.8"/>
+            <text x="200" y="70" font-family="monospace" font-size="9" fill="#0a0a0a" font-weight="bold" text-anchor="middle">Risk: 67%</text>
+            <!-- Feature importance bars -->
+            <text x="20" y="105" font-family="monospace" font-size="8" fill="#7a3a3a">Feature Importance</text>
+            <rect x="20" y="115" width="200" height="12" rx="3" fill="#2a1a1a"/>
+            <rect x="20" y="115" width="180" height="12" rx="3" fill="#4a9eff" opacity="0.7"/>
+            <text x="228" y="125" font-family="monospace" font-size="8" fill="#aa7a50">Debt Ratio</text>
+            <rect x="20" y="133" width="140" height="12" rx="3" fill="#2a1a1a"/>
+            <rect x="20" y="133" width="120" height="12" rx="3" fill="#4a9eff" opacity="0.6"/>
+            <text x="228" y="143" font-family="monospace" font-size="8" fill="#aa7a50">Net Income</text>
+            <rect x="20" y="151" width="100" height="12" rx="3" fill="#2a1a1a"/>
+            <rect x="20" y="151" width="80" height="12" rx="3" fill="#4a9eff" opacity="0.5"/>
+            <text x="228" y="161" font-family="monospace" font-size="8" fill="#aa7a50">Equity Ratio</text>
+            <!-- ROC curve hint -->
+            <text x="20" y="190" font-family="monospace" font-size="8" fill="#5a3a3a" letter-spacing="1">DECISION TREE · LOGISTIC REGRESSION</text>
+            <text x="20" y="207" font-family="monospace" font-size="8" fill="#6a5a3a">AUC: 0.89 · Accuracy: 84%</text>
+            <rect x="0" y="215" width="400" height="3" fill="#4a9eff" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="apcard-body">
+          <div class="apcard-name">Bankruptcy Prediction</div>
+          <div class="apcard-desc">Predicts company bankruptcy risk using Decision Tree and Logistic Regression for data-driven financial decisions.</div>
+          <div class="apcard-tags"><span class="apcard-tag">Decision Tree</span><span class="apcard-tag">Logistic Regression</span><span class="apcard-tag">Python</span></div>
+          <div class="apcard-btns">
+            <a class="apbtn-gh" href="https://github.com/ayushmansatapathy/bankruptcy-prediction" target="_blank">GitHub</a>
+            <a class="apbtn-live disabled" href="#">View Live</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="apcard">
+        <div class="apcard-img">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="225" fill="#0a0d12"/>
+            <text x="20" y="28" font-family="monospace" font-size="9" fill="#5a7aaa">Youth Tobacco Insights — India</text>
+            <!-- line chart -->
+            <rect x="15" y="35" width="370" height="145" rx="5" fill="#0d1018" stroke="#1a2030" stroke-width="1"/>
+            <line x1="25" y1="50" x2="25" y2="170" stroke="#1e2840" stroke-width="1"/>
+            <line x1="25" y1="170" x2="375" y2="170" stroke="#1e2840" stroke-width="1"/>
+            <!-- data lines -->
+            <polyline points="40,140 80,125 120,130 160,108 200,115 240,95 280,100 320,85 360,90" fill="none" stroke="#4a9eff" stroke-width="2" stroke-linejoin="round"/>
+            <polyline points="40,155 80,150 120,148 160,142 200,138 240,132 280,128 320,122 360,118" fill="none" stroke="#60d4f0" stroke-width="2" stroke-linejoin="round"/>
+            <!-- dots -->
+            <circle cx="40" cy="140" r="3" fill="#4a9eff"/>
+            <circle cx="160" cy="108" r="3" fill="#4a9eff"/>
+            <circle cx="360" cy="90" r="3" fill="#4a9eff"/>
+            <circle cx="40" cy="155" r="3" fill="#60d4f0"/>
+            <circle cx="360" cy="118" r="3" fill="#60d4f0"/>
+            <!-- legend -->
+            <rect x="245" y="52" width="8" height="3" fill="#4a9eff" rx="1"/>
+            <text x="257" y="57" font-family="monospace" font-size="7" fill="#7a9a5a">Male</text>
+            <rect x="245" y="62" width="8" height="3" fill="#60d4f0" rx="1"/>
+            <text x="257" y="67" font-family="monospace" font-size="7" fill="#5a8a9a">Female</text>
+            <!-- x labels -->
+            <text x="35" y="183" font-family="monospace" font-size="6" fill="#3a4a5a">2015</text>
+            <text x="115" y="183" font-family="monospace" font-size="6" fill="#3a4a5a">2017</text>
+            <text x="195" y="183" font-family="monospace" font-size="6" fill="#3a4a5a">2019</text>
+            <text x="275" y="183" font-family="monospace" font-size="6" fill="#3a4a5a">2021</text>
+            <text x="345" y="183" font-family="monospace" font-size="6" fill="#3a4a5a">2023</text>
+            <text x="20" y="208" font-family="monospace" font-size="7" fill="#3a4a5a" letter-spacing="1">MATPLOTLIB · PANDAS · PUBLIC HEALTH</text>
+            <rect x="0" y="215" width="400" height="3" fill="#4a9eff" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="apcard-body">
+          <div class="apcard-name">Youth Tobacco Insights — India</div>
+          <div class="apcard-desc">Data visualization revealing tobacco usage trends among Indian youth to support public health awareness.</div>
+          <div class="apcard-tags"><span class="apcard-tag">Matplotlib</span><span class="apcard-tag">Pandas</span><span class="apcard-tag">EDA</span></div>
+          <div class="apcard-btns">
+            <a class="apbtn-gh" href="https://github.com/ayushmansatapathy/youth-tobacco-insights-India" target="_blank">GitHub</a>
+            <a class="apbtn-live disabled" href="#">View Live</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="apcard">
+        <div class="apcard-img">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="225" fill="#0a0d12"/>
+            <text x="20" y="28" font-family="monospace" font-size="9" fill="#5a7aaa">Myanmar City Sales Analysis</text>
+            <!-- 3 city bars side by side -->
+            <text x="60" y="52" font-family="monospace" font-size="8" fill="#4a5a7a" text-anchor="middle">Yangon</text>
+            <text x="200" y="52" font-family="monospace" font-size="8" fill="#4a5a7a" text-anchor="middle">Mandalay</text>
+            <text x="340" y="52" font-family="monospace" font-size="8" fill="#4a5a7a" text-anchor="middle">Naypyidaw</text>
+            <!-- Yangon bars -->
+            <rect x="25" y="160" width="25" height="25" rx="2" fill="#4a9eff" opacity="0.8"/>
+            <rect x="55" y="120" width="25" height="65" rx="2" fill="#60d4f0" opacity="0.7"/>
+            <rect x="85" y="100" width="25" height="85" rx="2" fill="#f0a060" opacity="0.7"/>
+            <!-- Mandalay bars -->
+            <rect x="165" y="130" width="25" height="55" rx="2" fill="#4a9eff" opacity="0.8"/>
+            <rect x="195" y="108" width="25" height="77" rx="2" fill="#60d4f0" opacity="0.7"/>
+            <rect x="225" y="118" width="25" height="67" rx="2" fill="#f0a060" opacity="0.7"/>
+            <!-- Naypyidaw bars -->
+            <rect x="305" y="140" width="25" height="45" rx="2" fill="#4a9eff" opacity="0.8"/>
+            <rect x="335" y="115" width="25" height="70" rx="2" fill="#60d4f0" opacity="0.7"/>
+            <rect x="365" y="125" width="25" height="60" rx="2" fill="#f0a060" opacity="0.7"/>
+            <!-- baseline -->
+            <line x1="15" y1="187" x2="395" y2="187" stroke="#1e2840" stroke-width="1"/>
+            <!-- legend -->
+            <rect x="20" y="195" width="8" height="5" fill="#4a9eff" opacity="0.8" rx="1"/>
+            <text x="32" y="201" font-family="monospace" font-size="7" fill="#7aaa50">Electronics</text>
+            <rect x="110" y="195" width="8" height="5" fill="#60d4f0" opacity="0.8" rx="1"/>
+            <text x="122" y="201" font-family="monospace" font-size="7" fill="#5a9aaa">Fashion</text>
+            <rect x="190" y="195" width="8" height="5" fill="#f0a060" opacity="0.8" rx="1"/>
+            <text x="202" y="201" font-family="monospace" font-size="7" fill="#aa7a50">Food</text>
+            <text x="270" y="201" font-family="monospace" font-size="7" fill="#3a5a7a">SEABORN · MATPLOTLIB · PANDAS</text>
+            <rect x="0" y="215" width="400" height="3" fill="#4a9eff" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="apcard-body">
+          <div class="apcard-name">Myanmar City Sales Analysis</div>
+          <div class="apcard-desc">Visualizes customer purchasing patterns across 3 cities to help optimize inventory and marketing.</div>
+          <div class="apcard-tags"><span class="apcard-tag">Seaborn</span><span class="apcard-tag">Matplotlib</span><span class="apcard-tag">Pandas</span></div>
+          <div class="apcard-btns">
+            <a class="apbtn-gh" href="https://github.com/ayushmansatapathy/myanmar-city-sales-visualization" target="_blank">GitHub</a>
+            <a class="apbtn-live disabled" href="#">View Live</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /ap-grid Data -->
+  </div>
+
+  <!-- GROUP: Web Development -->
+  <div class="ap-group">
+    <div class="ap-group-head">
+      <span class="ap-cat-label">Web Development</span>
+      <span class="ap-cat-count">2 projects</span>
+    </div>
+    <div class="ap-grid">
+
+      <div class="apcard">
+        <div class="apcard-img">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="225" fill="#0a0a0a"/>
+            <!-- Browser chrome -->
+            <rect x="15" y="15" width="370" height="195" rx="6" fill="#111111" stroke="#1e1e1e" stroke-width="1"/>
+            <rect x="15" y="15" width="370" height="28" rx="6" fill="#181818" stroke="#1e1e1e" stroke-width="1"/>
+            <circle cx="30" cy="29" r="4" fill="#ff5f56"/>
+            <circle cx="44" cy="29" r="4" fill="#ffbd2e"/>
+            <circle cx="58" cy="29" r="4" fill="#27c93f"/>
+            <rect x="80" y="20" width="240" height="18" rx="9" fill="#222" stroke="#2a2a2a" stroke-width="1"/>
+            <text x="160" y="32" font-family="monospace" font-size="8" fill="#555" text-anchor="middle">tempus-world-clock.app</text>
+            <!-- Clock display -->
+            <text x="200" y="70" font-family="monospace" font-size="10" fill="#666" text-anchor="middle">WORLD CLOCK</text>
+            <rect x="30" y="80" width="155" height="50" rx="5" fill="#0d0d0d" stroke="#1e1e1e" stroke-width="1"/>
+            <text x="45" y="98" font-family="monospace" font-size="8" fill="#555">New York</text>
+            <text x="45" y="118" font-family="monospace" font-size="18" fill="#4a9eff" font-weight="bold">14:32</text>
+            <rect x="215" y="80" width="155" height="50" rx="5" fill="#0d0d0d" stroke="#1e1e1e" stroke-width="1"/>
+            <text x="230" y="98" font-family="monospace" font-size="8" fill="#555">Tokyo</text>
+            <text x="230" y="118" font-family="monospace" font-size="18" fill="#4a9eff" font-weight="bold">03:32</text>
+            <rect x="30" y="140" width="155" height="50" rx="5" fill="#0d0d0d" stroke="#1e1e1e" stroke-width="1"/>
+            <text x="45" y="158" font-family="monospace" font-size="8" fill="#555">London</text>
+            <text x="45" y="178" font-family="monospace" font-size="18" fill="#4a9eff" font-weight="bold">19:32</text>
+            <rect x="215" y="140" width="155" height="50" rx="5" fill="#0d0d0d" stroke="#1e1e1e" stroke-width="1"/>
+            <text x="230" y="158" font-family="monospace" font-size="8" fill="#555">Dubai</text>
+            <text x="230" y="178" font-family="monospace" font-size="18" fill="#4a9eff" font-weight="bold">22:32</text>
+            <rect x="0" y="215" width="400" height="3" fill="#4a9eff" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="apcard-body">
+          <div class="apcard-name">Tempus — World Clock</div>
+          <div class="apcard-desc">Clean, interactive website displaying live time across multiple cities worldwide with smooth transitions.</div>
+          <div class="apcard-tags"><span class="apcard-tag">HTML</span><span class="apcard-tag">CSS</span><span class="apcard-tag">JavaScript</span></div>
+          <div class="apcard-btns">
+            <a class="apbtn-gh" href="https://github.com/ayushmansatapathy/tempus" target="_blank">GitHub</a>
+            <a class="apbtn-live" href="https://github.com/ayushmansatapathy/tempus" target="_blank">View Live</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="apcard">
+        <div class="apcard-img">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="225" fill="#0a0f0a"/>
+            <text x="20" y="30" font-family="monospace" font-size="10" fill="#4a8a4a">Carbon Footprint Finder</text>
+            <!-- CO2 meter -->
+            <circle cx="200" cy="115" r="70" fill="none" stroke="#1a3a1a" stroke-width="8"/>
+            <circle cx="200" cy="115" r="70" fill="none" stroke="#4a9eff" stroke-width="8" stroke-dasharray="285 175" stroke-dashoffset="-88" stroke-linecap="round"/>
+            <text x="200" y="105" font-family="monospace" font-size="11" fill="#4a9eff" text-anchor="middle" font-weight="bold">247 kg</text>
+            <text x="200" y="122" font-family="monospace" font-size="8" fill="#4a7a4a" text-anchor="middle">CO₂e / year</text>
+            <text x="200" y="138" font-family="monospace" font-size="7" fill="#3a5a3a" text-anchor="middle">Software Lifecycle</text>
+            <!-- Tags -->
+            <rect x="130" y="195" width="45" height="16" rx="4" fill="#1a3a1a" stroke="#2a5a2a"/>
+            <text x="137" y="206" font-family="monospace" font-size="7" fill="#60aa60">Python</text>
+            <rect x="182" y="195" width="40" height="16" rx="4" fill="#1a3a1a" stroke="#2a5a2a"/>
+            <text x="189" y="206" font-family="monospace" font-size="7" fill="#60aa60">HTML</text>
+            <rect x="230" y="195" width="45" height="16" rx="4" fill="#1a3a1a" stroke="#2a5a2a"/>
+            <text x="235" y="206" font-family="monospace" font-size="7" fill="#60aa60">JavaScript</text>
+            <rect x="0" y="215" width="400" height="3" fill="#4a9eff" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="apcard-body">
+          <div class="apcard-name">Carbon Footprint Finder</div>
+          <div class="apcard-desc">Web platform calculating carbon footprints of software across its full lifecycle for developers and tech companies.</div>
+          <div class="apcard-tags"><span class="apcard-tag">Python</span><span class="apcard-tag">HTML</span><span class="apcard-tag">JavaScript</span></div>
+          <div class="apcard-btns">
+            <a class="apbtn-gh" href="https://github.com/ayushmansatapathy" target="_blank">GitHub</a>
+            <a class="apbtn-live disabled" href="#">View Live</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /ap-grid Web -->
+  </div>
+
+  <div style="height:3rem;"></div>
+</div><!-- /all-projects-page -->
+
+<!-- EDUCATION -->
+<section id="education">
+  <p class="eyebrow">04 &mdash; Education</p>
+  <h2 class="sec-head">My <em>Journey</em></h2>
+  <div class="rule"></div>
+  <div class="edu-list">
+    <div class="edu-row">
+      <div class="edu-date">2024 &mdash; 2027</div>
+      <div>
+        <div class="edu-title">Bachelor of Computer Applications</div>
+        <div class="edu-sub">Lovely Professional University &mdash; Phagwara, Punjab</div>
+        <div class="edu-note">Focus: AI, Machine Learning &amp; Software Development</div>
+      </div>
+      <div class="edu-tag">In Progress</div>
+    </div>
+    <div class="edu-row">
+      <div class="edu-date">2022 &mdash; 2023</div>
+      <div>
+        <div class="edu-title">12th Grade &mdash; Science Stream</div>
+        <div class="edu-sub">Venkateswar English Medium School &mdash; Bhubaneshwar, Odisha</div>
+        <div class="edu-note">Percentage: 78.60%</div>
+      </div>
+      <div class="edu-tag">Completed</div>
+    </div>
+    <div class="edu-row">
+      <div class="edu-date">2020 &mdash; 2021</div>
+      <div>
+        <div class="edu-title">10th Grade &mdash; Science Stream</div>
+        <div class="edu-sub">Venkateswar English Medium School &mdash; Bhubaneshwar, Odisha</div>
+        <div class="edu-note">Percentage: 80.00%</div>
+      </div>
+      <div class="edu-tag">Completed</div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <p class="eyebrow">05 &mdash; Certifications</p>
+  <h2 class="sec-head">Achievements</h2>
+  <div class="rule"></div>
+  <div class="certs-grid">
+    <div class="ccard reveal"><div class="cissuer">Anthropic</div><div class="cname">AI Fluency: Framework &amp; Foundations</div><div class="cdate">2026</div></div>
+    <div class="ccard reveal d1"><div class="cissuer">Anthropic</div><div class="cname">Claude 101</div><div class="cdate">2026</div></div>
+    <div class="ccard reveal d2"><div class="cissuer">Anthropic</div><div class="cname">Claude Code 101</div><div class="cdate">2026</div></div>
+    <div class="ccard reveal"><div class="cissuer">Tata &mdash; Forage</div><div class="cname">GenAI Powered Data Analytics Job Simulation</div><div class="cdate">April 2026</div></div>
+    <div class="ccard reveal d1"><div class="cissuer">IBM</div><div class="cname">Data Visualization</div><div class="cdate">November 2025</div></div>
+    <div class="ccard reveal d2"><div class="cissuer">IBM Developer Skills Network</div><div class="cname">Machine Learning with Python</div><div class="cdate">October 2025</div></div>
+    <div class="ccard reveal"><div class="cissuer">CognitiveClass.ai (IBM)</div><div class="cname">Build Your Chatbot</div><div class="cdate">October 2024</div></div>
+    <div class="ccard reveal d1"><div class="cissuer">IBM</div><div class="cname">Python</div><div class="cdate">November 2024</div></div>
+    <div class="ccard reveal d2"><div class="cissuer">Wadhwani Foundation</div><div class="cname">Professionalism &amp; Effective Speaking</div><div class="cdate">December 2024</div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="eyebrow">06 &mdash; Contact</p>
+  <p style="font-size:0.92rem;color:var(--text-2);margin-top:0.4rem;font-weight:300;">Want to collaborate?</p>
+  <div class="contact-big">
+    Let's Connect
+    <a class="arrow-circle" href="mailto:ayushmansatapathy10@gmail.com" title="Email">&#8599;</a>
+  </div>
+  <div class="contact-row">
+    <p class="contact-tagline">Whether it's an internship, collaboration, freelance project, or just a conversation about tech and AI &mdash; my inbox is always open.</p>
+    <div class="clinks">
+      <a href="mailto:ayushmansatapathy10@gmail.com" class="clink">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>ayushmansatapathy10@gmail.com
+      </a>
+      <a href="https://github.com/ayushmansatapathy" target="_blank" class="clink">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.04c-3.34.72-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.01 2.04.14 3 .4 2.28-1.55 3.3-1.23 3.3-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/ayushmansatapathy/" target="_blank" class="clink">
+        <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.37 4.26 5.44v6.3zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn
+      </a>
+      <a href="https://x.com/sataAyushman" target="_blank" class="clink">
+        <svg viewBox="0 0 24 24"><path d="M18.24 2h3.18L14.18 10.2 22.5 22h-6.8l-5.14-6.73L4.76 22H1.57l7.7-8.8L1.5 2h6.97l4.64 6.14L18.24 2zm-1.12 18h1.76L6.98 3.77H5.1L17.12 20z"/></svg>Twitter / X
+      </a>
+    </div>
+  </div>
+  <div class="cform-section reveal">
+    <div><p class="cform-label">Send me a <strong>message</strong> directly.</p></div>
+    <div class="cform">
+      <div class="fg"><label>Name</label><input type="text" id="fname" placeholder="Your name" /></div>
+      <div class="fg"><label>Email</label><input type="email" id="femail" placeholder="your@email.com" /></div>
+      <div class="fg"><label>Message</label><textarea id="fmessage" placeholder="Tell me about your project or opportunity..."></textarea></div>
+      <div><button class="btn-p" onclick="submitForm()">Send Message &nbsp;&#8594;</button></div>
+      <div id="fs">Message received &mdash; I'll get back to you soon.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 <span>Ayushman Satapathy</span> &mdash; Built with precision.</p>
+  <div class="flinks">
+    <a href="https://github.com/ayushmansatapathy" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/ayushmansatapathy/" target="_blank">LinkedIn</a>
+    <a href="https://x.com/sataAyushman" target="_blank">Twitter/X</a>
+  </div>
+</footer>
+
+<script>
+  // ALL PROJECTS OVERLAY
+  function openAllProjects() {
+    const page = document.getElementById('all-projects-page');
+    page.classList.add('open');
+    page.scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+  }
+  function closeAllProjects() {
+    document.getElementById('all-projects-page').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // CURSOR
+  const cur = document.getElementById('cur'), ring = document.getElementById('cur-ring');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+  (function loop(){cur.style.left=mx+'px';cur.style.top=my+'px';rx+=(mx-rx)*0.1;ry+=(my-ry)*0.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
+  document.querySelectorAll('a,button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cur.style.transform='translate(-50%,-50%) scale(2.2)';ring.style.width='50px';ring.style.height='50px';});
+    el.addEventListener('mouseleave',()=>{cur.style.transform='translate(-50%,-50%) scale(1)';ring.style.width='30px';ring.style.height='30px';});
+  });
+
+  // SCROLL REVEAL
+  const obs = new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.08});
+  document.querySelectorAll('.reveal,.edu-row').forEach(el=>obs.observe(el));
+
+  // MOBILE MENU
+  function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+
+  // ACCORDION
+  function toggleAcc(h){
+    const b=h.nextElementSibling;
+    const open=h.classList.contains('open');
+    h.classList.toggle('open',!open);
+    b.classList.toggle('open',!open);
+  }
+
+  // FORM
+  function submitForm(){
+    const n=document.getElementById('fname').value.trim();
+    const e=document.getElementById('femail').value.trim();
+    const m=document.getElementById('fmessage').value.trim();
+    if(!n||!e||!m){alert('Please fill in all fields.');return;}
+    document.getElementById('fs').style.display='block';
+    document.getElementById('fname').value='';
+    document.getElementById('femail').value='';
+    document.getElementById('fmessage').value='';
+    setTimeout(()=>{document.getElementById('fs').style.display='none';},4000);
+  }
+
+  // NAV ACTIVE
+  const sections=document.querySelectorAll('section[id]');
+  window.addEventListener('scroll',()=>{
+    let y=window.pageYOffset;
+    sections.forEach(s=>{
+      if(y>=s.offsetTop-130&&y<s.offsetTop+s.offsetHeight-130){
+        document.querySelectorAll('.nav-links a:not(.nav-cta)').forEach(a=>{
+          a.style.color='';
+          if(a.getAttribute('href')==='#'+s.id)a.style.color='var(--text)';
+        });
+      }
+    });
+  });
+</script>
+</body>
+</html>
