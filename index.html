@@ -22,17 +22,17 @@
     }
 
     :root {
-      --bg: #13110E;
-      --surface: #1B1813;
-      --surface2: #221E18;
-      --border: #2A2420;
-      --border-light: #3D3630;
-      --text: #EDE8DE;
-      --text-2: #9A9085;
-      --text-3: #524840;
-      --accent: #C9A96E;
-      --accent-dim: rgba(201, 169, 110, 0.1);
-      --white: #EDE8DE;
+      --bg: #0A0A0A;
+      --surface: #141414;
+      --surface2: #1E1E1E;
+      --border: #2A2A2A;
+      --border-light: #3A3A3A;
+      --text: #F0F0F0;
+      --text-2: #888888;
+      --text-3: #444444;
+      --accent: #C8C8C8;
+      --accent-dim: rgba(200, 200, 200, 0.08);
+      --white: #F0F0F0;
       --sans: 'DM Sans', sans-serif;
       --mono: 'DM Mono', monospace;
     }
@@ -76,7 +76,7 @@
       position: fixed;
       width: 30px;
       height: 30px;
-      border: 1px solid rgba(201, 169, 110, 0.35);
+      border: 1px solid rgba(200, 200, 200, 0.35);
       border-radius: 50%;
       pointer-events: none;
       z-index: 9998;
@@ -95,7 +95,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 1.3rem 4rem;
-      background: rgba(19, 17, 14, 0.88);
+      background: rgba(10, 10, 10, 0.88);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
@@ -573,7 +573,7 @@
       gap: 0.5rem;
       margin-top: 1.8rem;
       padding: 0.55rem 1.1rem;
-      border: 1px solid rgba(201, 169, 110, 0.22);
+      border: 1px solid rgba(200, 200, 200, 0.18);
       border-radius: 100px;
       background: var(--accent-dim);
       font-family: var(--mono);
@@ -687,7 +687,7 @@
 
     .tag:hover {
       background: var(--accent-dim);
-      border-color: rgba(201, 169, 110, 0.3);
+      border-color: rgba(200, 200, 200, 0.3);
       color: var(--accent);
     }
 
@@ -717,8 +717,8 @@
 
     .pcard:hover {
       transform: translateY(-5px);
-      border-color: rgba(201, 169, 110, 0.25);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border-color: rgba(200, 200, 200, 0.25);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
     }
 
     .pcard-img {
@@ -744,15 +744,15 @@
 
     /* fallback gradient when no img */
     .pcard-img.grad-ml {
-      background: linear-gradient(135deg, #1a120a 0%, #2e1f0d 50%, #1a1208 100%);
+      background: linear-gradient(135deg, #111111 0%, #222222 50%, #111111 100%);
     }
 
     .pcard-img.grad-da {
-      background: linear-gradient(135deg, #1a1408 0%, #2e2510 50%, #1a1408 100%);
+      background: linear-gradient(135deg, #141414 0%, #282828 50%, #141414 100%);
     }
 
     .pcard-img.grad-web {
-      background: linear-gradient(135deg, #14100a 0%, #281e10 50%, #14100a 100%);
+      background: linear-gradient(135deg, #0f0f0f 0%, #1e1e1e 50%, #0f0f0f 100%);
     }
 
     /* SVG preview inside gradient cards */
@@ -911,7 +911,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 1.3rem 4rem;
-      background: rgba(19, 17, 14, 0.95);
+      background: rgba(10, 10, 10, 0.95);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
@@ -994,7 +994,7 @@
 
     .apcard:hover {
       transform: translateY(-4px);
-      border-color: rgba(201, 169, 110, 0.22);
+      border-color: rgba(200, 200, 200, 0.22);
     }
 
     .apcard-img {
@@ -1208,7 +1208,7 @@
       font-size: 0.63rem;
       color: var(--accent);
       background: var(--accent-dim);
-      border: 1px solid rgba(201, 169, 110, 0.2);
+      border: 1px solid rgba(200, 200, 200, 0.16);
       border-radius: 100px;
       padding: 0.22rem 0.7rem;
       display: inline-block;
@@ -1408,7 +1408,7 @@
 
     .fg input:focus,
     .fg textarea:focus {
-      border-color: rgba(201, 169, 110, 0.38);
+      border-color: rgba(200, 200, 200, 0.35);
     }
 
     .fg input::placeholder,
@@ -1427,7 +1427,7 @@
       font-size: 0.75rem;
       color: var(--accent);
       padding: 0.65rem 1rem;
-      border: 1px solid rgba(201, 169, 110, 0.22);
+      border: 1px solid rgba(200, 200, 200, 0.18);
       border-radius: 6px;
       background: var(--accent-dim);
     }
@@ -1476,7 +1476,7 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(19, 17, 14, 0.97);
+      background: rgba(10, 10, 10, 0.97);
       z-index: 199;
       flex-direction: column;
       align-items: center;
@@ -1842,10 +1842,10 @@
             <defs>
               <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0%" stop-color="#100d08" />
-                <stop offset="100%" stop-color="#1a1208" />
+                <stop offset="100%" stop-color="#111111" />
               </linearGradient>
               <linearGradient id="ac1" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#C9A96E" />
+                <stop offset="0%" stop-color="#C8C8C8" />
                 <stop offset="100%" stop-color="#a88040" />
               </linearGradient>
             </defs>
@@ -1858,15 +1858,15 @@
             <line x1="0" y1="225" x2="480" y2="225" stroke="#2A2218" stroke-width="1" />
             <!-- Chat bubbles -->
             <rect x="30" y="30" width="200" height="38" rx="8" fill="#221A0E" stroke="#3D2E1A" stroke-width="1" />
-            <text x="44" y="54" font-family="monospace" font-size="11" fill="#D4A96A">msg: "great product!"</text>
+            <text x="44" y="54" font-family="monospace" font-size="11" fill="#AAAAAA">msg: "great product!"</text>
             <rect x="260" y="30" width="100" height="24" rx="12" fill="url(#ac1)" />
             <text x="272" y="47" font-family="monospace" font-size="10" fill="#130f0b" font-weight="bold">✓ SAFE</text>
             <rect x="30" y="82" width="220" height="38" rx="8" fill="#221A0E" stroke="#3D2E1A" stroke-width="1" />
-            <text x="44" y="106" font-family="monospace" font-size="11" fill="#D4A96A">msg: "you are terrible"</text>
-            <rect x="260" y="82" width="108" height="24" rx="12" fill="#3a1a1a" stroke="#ff5f56" stroke-width="1" />
-            <text x="272" y="99" font-family="monospace" font-size="10" fill="#ff5f56">⚠ FLAGGED</text>
+            <text x="44" y="106" font-family="monospace" font-size="11" fill="#AAAAAA">msg: "you are terrible"</text>
+            <rect x="260" y="82" width="108" height="24" rx="12" fill="#333333" stroke="#777777" stroke-width="1" />
+            <text x="272" y="99" font-family="monospace" font-size="10" fill="#555555">⚠ FLAGGED</text>
             <rect x="30" y="134" width="190" height="38" rx="8" fill="#221A0E" stroke="#3D2E1A" stroke-width="1" />
-            <text x="44" y="158" font-family="monospace" font-size="11" fill="#D4A96A">msg: "love this place!"</text>
+            <text x="44" y="158" font-family="monospace" font-size="11" fill="#AAAAAA">msg: "love this place!"</text>
             <rect x="260" y="134" width="100" height="24" rx="12" fill="url(#ac1)" />
             <text x="272" y="151" font-family="monospace" font-size="10" fill="#130f0b" font-weight="bold">✓ SAFE</text>
             <!-- NLP label -->
@@ -1876,7 +1876,7 @@
             <rect x="0" y="260" width="480" height="4" fill="url(#ac1)" opacity="0.7" />
             <!-- Corner label -->
             <rect x="370" y="198" width="80" height="22" rx="4" fill="#0d2040" stroke="#3D2E1A" stroke-width="1" />
-            <text x="382" y="213" font-family="monospace" font-size="9" fill="#D4A96A">AI Moderation</text>
+            <text x="382" y="213" font-family="monospace" font-size="9" fill="#AAAAAA">AI Moderation</text>
           </svg>
         </div>
         <div class="pcard-body">
@@ -1919,7 +1919,7 @@
                 <stop offset="100%" stop-color="#130f0b" />
               </linearGradient>
               <linearGradient id="ac2" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#C9A96E" />
+                <stop offset="0%" stop-color="#C8C8C8" />
                 <stop offset="100%" stop-color="#a88040" />
               </linearGradient>
             </defs>
@@ -1927,8 +1927,8 @@
             <!-- Camera frame -->
             <rect x="20" y="20" width="440" height="230" rx="4" fill="none" stroke="#2A2218" stroke-width="1.5" />
             <!-- Detection boxes -->
-            <rect x="60" y="55" width="110" height="130" rx="2" fill="none" stroke="#C9A96E" stroke-width="2" />
-            <rect x="60" y="55" width="80" height="18" rx="2" fill="#C9A96E" />
+            <rect x="60" y="55" width="110" height="130" rx="2" fill="none" stroke="#C8C8C8" stroke-width="2" />
+            <rect x="60" y="55" width="80" height="18" rx="2" fill="#C8C8C8" />
             <text x="68" y="68" font-family="monospace" font-size="10" fill="#130f0b" font-weight="bold">Person
               98%</text>
             <rect x="200" y="80" width="90" height="80" rx="2" fill="none" stroke="#60d4f0" stroke-width="2" />
@@ -1939,12 +1939,12 @@
             <text x="327" y="112" font-family="monospace" font-size="9" fill="#130f0b" font-weight="bold">Bike
               87%</text>
             <!-- Scan lines -->
-            <line x1="20" y1="140" x2="460" y2="140" stroke="#C9A96E" stroke-width="0.5" opacity="0.3" />
+            <line x1="20" y1="140" x2="460" y2="140" stroke="#C8C8C8" stroke-width="0.5" opacity="0.3" />
             <!-- Corner markers -->
-            <path d="M30 30 L30 42 M30 30 L42 30" stroke="#C9A96E" stroke-width="2" fill="none" />
-            <path d="M450 30 L450 42 M450 30 L438 30" stroke="#C9A96E" stroke-width="2" fill="none" />
-            <path d="M30 240 L30 228 M30 240 L42 240" stroke="#C9A96E" stroke-width="2" fill="none" />
-            <path d="M450 240 L450 228 M450 240 L438 240" stroke="#C9A96E" stroke-width="2" fill="none" />
+            <path d="M30 30 L30 42 M30 30 L42 30" stroke="#C8C8C8" stroke-width="2" fill="none" />
+            <path d="M450 30 L450 42 M450 30 L438 30" stroke="#C8C8C8" stroke-width="2" fill="none" />
+            <path d="M30 240 L30 228 M30 240 L42 240" stroke="#C8C8C8" stroke-width="2" fill="none" />
+            <path d="M450 240 L450 228 M450 240 L438 240" stroke="#C8C8C8" stroke-width="2" fill="none" />
             <!-- Stats bar -->
             <text x="30" y="218" font-family="monospace" font-size="9" fill="#9A8060">FPS: 42</text>
             <text x="100" y="218" font-family="monospace" font-size="9" fill="#9A8060">Objects: 3</text>
@@ -1988,19 +1988,19 @@
             <defs>
               <linearGradient id="hbg" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0%" stop-color="#130f0b" />
-                <stop offset="100%" stop-color="#1B1510" />
+                <stop offset="100%" stop-color="#141414" />
               </linearGradient>
               <linearGradient id="hfear" x1="0" y1="0" x2="1" y2="0">
                 <stop offset="0%" stop-color="#ef4444" />
                 <stop offset="100%" stop-color="#f97316" />
               </linearGradient>
               <linearGradient id="hgreed" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#C9A96E" />
-                <stop offset="100%" stop-color="#C9A96E" />
+                <stop offset="0%" stop-color="#C8C8C8" />
+                <stop offset="100%" stop-color="#C8C8C8" />
               </linearGradient>
               <linearGradient id="hline1" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#C9A96E" stop-opacity="0.9" />
-                <stop offset="100%" stop-color="#C9A96E" stop-opacity="0.1" />
+                <stop offset="0%" stop-color="#C8C8C8" stop-opacity="0.9" />
+                <stop offset="100%" stop-color="#C8C8C8" stop-opacity="0.1" />
               </linearGradient>
               <linearGradient id="hline2" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stop-color="#ef4444" stop-opacity="0.7" />
@@ -2009,12 +2009,12 @@
             </defs>
             <rect width="480" height="270" fill="url(#hbg)" />
             <!-- Header bar -->
-            <rect x="16" y="14" width="448" height="30" rx="6" fill="#1B1813" stroke="#2A2420" stroke-width="1" />
-            <circle cx="30" cy="29" r="4.5" fill="#C9A96E" />
+            <rect x="16" y="14" width="448" height="30" rx="6" fill="#141414" stroke="#2A2A2A" stroke-width="1" />
+            <circle cx="30" cy="29" r="4.5" fill="#C8C8C8" />
             <text x="42" y="33" font-family="monospace" font-size="9.5" fill="#BFB5A8">Hyperliquid · Fear &amp; Greed
               Index vs Trader Behavior</text>
             <!-- Gauge arc background -->
-            <path d="M240 168 m-90 0 a90 90 0 0 1 180 0" fill="none" stroke="#2A2420" stroke-width="18"
+            <path d="M240 168 m-90 0 a90 90 0 0 1 180 0" fill="none" stroke="#2A2A2A" stroke-width="18"
               stroke-linecap="round" />
             <!-- Fear zone (red) -->
             <path d="M240 168 m-90 0 a90 90 0 0 1 45 -77.9" fill="none" stroke="url(#hfear)" stroke-width="18"
@@ -2024,38 +2024,38 @@
               stroke-linecap="round" opacity="0.85" />
             <!-- Gauge needle -->
             <line x1="240" y1="168" x2="192" y2="100" stroke="#f8fafc" stroke-width="2.5" stroke-linecap="round" />
-            <circle cx="240" cy="168" r="6" fill="#2A2420" stroke="#C9A96E" stroke-width="2" />
+            <circle cx="240" cy="168" r="6" fill="#2A2A2A" stroke="#C8C8C8" stroke-width="2" />
             <!-- Labels -->
             <text x="136" y="182" font-family="monospace" font-size="8" fill="#ef4444" text-anchor="middle">FEAR</text>
-            <text x="344" y="182" font-family="monospace" font-size="8" fill="#C9A96E" text-anchor="middle">GREED</text>
-            <text x="240" y="192" font-family="monospace" font-size="9" fill="#EDE8DE" text-anchor="middle"
+            <text x="344" y="182" font-family="monospace" font-size="8" fill="#C8C8C8" text-anchor="middle">GREED</text>
+            <text x="240" y="192" font-family="monospace" font-size="9" fill="#F0F0F0" text-anchor="middle"
               font-weight="bold">38 — FEAR</text>
             <!-- KPI row -->
-            <rect x="16" y="54" width="100" height="46" rx="5" fill="#1B1813" stroke="#2A2420" stroke-width="1" />
+            <rect x="16" y="54" width="100" height="46" rx="5" fill="#141414" stroke="#2A2A2A" stroke-width="1" />
             <text x="26" y="70" font-family="monospace" font-size="7" fill="#7A6E62">WIN RATE (FEAR)</text>
-            <text x="26" y="89" font-family="monospace" font-size="15" fill="#C9A96E" font-weight="bold">62%</text>
-            <rect x="126" y="54" width="100" height="46" rx="5" fill="#1B1813" stroke="#2A2420" stroke-width="1" />
+            <text x="26" y="89" font-family="monospace" font-size="15" fill="#C8C8C8" font-weight="bold">62%</text>
+            <rect x="126" y="54" width="100" height="46" rx="5" fill="#141414" stroke="#2A2A2A" stroke-width="1" />
             <text x="136" y="70" font-family="monospace" font-size="7" fill="#7A6E62">WIN RATE (GREED)</text>
             <text x="136" y="89" font-family="monospace" font-size="15" fill="#ef4444" font-weight="bold">48%</text>
-            <rect x="236" y="54" width="100" height="46" rx="5" fill="#1B1813" stroke="#2A2420" stroke-width="1" />
+            <rect x="236" y="54" width="100" height="46" rx="5" fill="#141414" stroke="#2A2A2A" stroke-width="1" />
             <text x="246" y="70" font-family="monospace" font-size="7" fill="#7A6E62">LEVERAGE ↑</text>
             <text x="246" y="89" font-family="monospace" font-size="15" fill="#f97316" font-weight="bold">+15%</text>
-            <rect x="346" y="54" width="118" height="46" rx="5" fill="#1B1813" stroke="#2A2420" stroke-width="1" />
+            <rect x="346" y="54" width="118" height="46" rx="5" fill="#141414" stroke="#2A2A2A" stroke-width="1" />
             <text x="356" y="70" font-family="monospace" font-size="7" fill="#7A6E62">TRADE SIZE ↑</text>
             <text x="356" y="89" font-family="monospace" font-size="15" fill="#f97316" font-weight="bold">+34.5%</text>
             <!-- PnL comparison bars -->
-            <rect x="16" y="206" width="220" height="52" rx="5" fill="#1B1813" stroke="#2A2420" stroke-width="1" />
+            <rect x="16" y="206" width="220" height="52" rx="5" fill="#141414" stroke="#2A2A2A" stroke-width="1" />
             <text x="26" y="220" font-family="monospace" font-size="7" fill="#7A6E62">AVG PnL COMPARISON</text>
             <rect x="26" y="228" width="80" height="11" rx="3" fill="url(#hgreed)" opacity="0.9" />
-            <text x="112" y="238" font-family="monospace" font-size="7.5" fill="#C9A96E">Fear: Higher</text>
+            <text x="112" y="238" font-family="monospace" font-size="7.5" fill="#C8C8C8">Fear: Higher</text>
             <rect x="26" y="244" width="52" height="11" rx="3" fill="url(#hfear)" opacity="0.8" />
             <text x="84" y="254" font-family="monospace" font-size="7.5" fill="#ef4444">Greed: Lower</text>
             <!-- Trader cluster tag -->
-            <rect x="246" y="206" width="218" height="52" rx="5" fill="#1B1813" stroke="#2A2420" stroke-width="1" />
+            <rect x="246" y="206" width="218" height="52" rx="5" fill="#141414" stroke="#2A2A2A" stroke-width="1" />
             <text x="256" y="220" font-family="monospace" font-size="7" fill="#7A6E62">BEST TRADER PROFILE</text>
             <text x="256" y="235" font-family="monospace" font-size="7.5" fill="#BFB5A8">✔ Low frequency</text>
             <text x="256" y="248" font-family="monospace" font-size="7.5" fill="#BFB5A8">✔ Moderate leverage</text>
-            <text x="256" y="261" font-family="monospace" font-size="7.5" fill="#C9A96E">✔ Win rate &gt;50%</text>
+            <text x="256" y="261" font-family="monospace" font-size="7.5" fill="#C8C8C8">✔ Win rate &gt;50%</text>
             <!-- Accent bottom bar -->
             <rect x="0" y="266" width="480" height="4" fill="url(#hgreed)" opacity="0.7" />
           </svg>
@@ -2123,21 +2123,21 @@
               preserveAspectRatio="xMidYMid slice">
               <rect width="400" height="225" fill="#100d08" />
               <rect x="15" y="15" width="185" height="30" rx="6" fill="#221A0E" stroke="#3D2E1A" stroke-width="1" />
-              <text x="24" y="35" font-family="monospace" font-size="10" fill="#D4A96A">msg: "great product!"</text>
-              <rect x="210" y="20" width="75" height="20" rx="10" fill="#C9A96E" />
+              <text x="24" y="35" font-family="monospace" font-size="10" fill="#AAAAAA">msg: "great product!"</text>
+              <rect x="210" y="20" width="75" height="20" rx="10" fill="#C8C8C8" />
               <text x="220" y="34" font-family="monospace" font-size="9" fill="#130f0b" font-weight="bold">✓ SAFE</text>
               <rect x="15" y="57" width="185" height="30" rx="6" fill="#221A0E" stroke="#3D2E1A" stroke-width="1" />
-              <text x="24" y="77" font-family="monospace" font-size="10" fill="#D4A96A">msg: "you are terrible"</text>
-              <rect x="210" y="62" width="80" height="20" rx="10" fill="#3a1a1a" stroke="#ff5f56" stroke-width="1" />
-              <text x="218" y="76" font-family="monospace" font-size="9" fill="#ff5f56">⚠ FLAGGED</text>
+              <text x="24" y="77" font-family="monospace" font-size="10" fill="#AAAAAA">msg: "you are terrible"</text>
+              <rect x="210" y="62" width="80" height="20" rx="10" fill="#333333" stroke="#777777" stroke-width="1" />
+              <text x="218" y="76" font-family="monospace" font-size="9" fill="#555555">⚠ FLAGGED</text>
               <rect x="15" y="99" width="175" height="30" rx="6" fill="#221A0E" stroke="#3D2E1A" stroke-width="1" />
-              <text x="24" y="119" font-family="monospace" font-size="10" fill="#D4A96A">msg: "love this!"</text>
-              <rect x="210" y="104" width="75" height="20" rx="10" fill="#C9A96E" />
+              <text x="24" y="119" font-family="monospace" font-size="10" fill="#AAAAAA">msg: "love this!"</text>
+              <rect x="210" y="104" width="75" height="20" rx="10" fill="#C8C8C8" />
               <text x="220" y="118" font-family="monospace" font-size="9" fill="#130f0b" font-weight="bold">✓
                 SAFE</text>
               <text x="15" y="165" font-family="monospace" font-size="8" fill="#7A6450" letter-spacing="2">NLP ·
                 CLASSIFICATION · API</text>
-              <rect x="0" y="215" width="400" height="3" fill="#C9A96E" opacity="0.7" />
+              <rect x="0" y="215" width="400" height="3" fill="#C8C8C8" opacity="0.7" />
             </svg>
           </div>
           <div class="apcard-body">
@@ -2161,8 +2161,8 @@
               preserveAspectRatio="xMidYMid slice">
               <rect width="400" height="225" fill="#130f0b" />
               <rect x="15" y="15" width="370" height="195" rx="4" fill="none" stroke="#2A2218" stroke-width="1.5" />
-              <rect x="50" y="45" width="90" height="110" rx="2" fill="none" stroke="#C9A96E" stroke-width="2" />
-              <rect x="50" y="45" width="65" height="15" rx="2" fill="#C9A96E" />
+              <rect x="50" y="45" width="90" height="110" rx="2" fill="none" stroke="#C8C8C8" stroke-width="2" />
+              <rect x="50" y="45" width="65" height="15" rx="2" fill="#C8C8C8" />
               <text x="56" y="56" font-family="monospace" font-size="9" fill="#130f0b" font-weight="bold">Person
                 98%</text>
               <rect x="165" y="65" width="80" height="65" rx="2" fill="none" stroke="#60d4f0" stroke-width="2" />
@@ -2173,10 +2173,10 @@
               <rect x="265" y="80" width="58" height="14" rx="2" fill="#f0a060" />
               <text x="270" y="91" font-family="monospace" font-size="8" fill="#130f0b" font-weight="bold">Bike
                 87%</text>
-              <line x1="15" y1="113" x2="385" y2="113" stroke="#C9A96E" stroke-width="0.5" opacity="0.3" />
+              <line x1="15" y1="113" x2="385" y2="113" stroke="#C8C8C8" stroke-width="0.5" opacity="0.3" />
               <text x="25" y="192" font-family="monospace" font-size="8" fill="#9A8060">FPS: 42 · Objects: 3 ·
                 YOLOv8</text>
-              <rect x="0" y="215" width="400" height="3" fill="#C9A96E" opacity="0.7" />
+              <rect x="0" y="215" width="400" height="3" fill="#C8C8C8" opacity="0.7" />
             </svg>
           </div>
           <div class="apcard-body">
@@ -2206,17 +2206,17 @@
               <rect x="160" y="120" width="40" height="55" rx="2" fill="#0a0a18" />
               <!-- Price tag -->
               <rect x="240" y="50" width="120" height="45" rx="6" fill="#221A12" stroke="#3D3020" stroke-width="1" />
-              <text x="252" y="68" font-family="monospace" font-size="9" fill="#D4A96A">Predicted</text>
-              <text x="252" y="85" font-family="monospace" font-size="13" fill="#C9A96E"
+              <text x="252" y="68" font-family="monospace" font-size="9" fill="#AAAAAA">Predicted</text>
+              <text x="252" y="85" font-family="monospace" font-size="13" fill="#C8C8C8"
                 font-weight="bold">$3,24,000</text>
               <!-- Features -->
               <rect x="20" y="140" width="90" height="22" rx="4" fill="#221A12" stroke="#3D3020" stroke-width="1" />
-              <text x="28" y="155" font-family="monospace" font-size="8" fill="#D4A96A">3 BHK · 1850 sq ft</text>
+              <text x="28" y="155" font-family="monospace" font-size="8" fill="#AAAAAA">3 BHK · 1850 sq ft</text>
               <rect x="20" y="170" width="90" height="22" rx="4" fill="#221A12" stroke="#3D3020" stroke-width="1" />
-              <text x="28" y="185" font-family="monospace" font-size="8" fill="#D4A96A">XGBoost · R²: 0.91</text>
+              <text x="28" y="185" font-family="monospace" font-size="8" fill="#AAAAAA">XGBoost · R²: 0.91</text>
               <text x="20" y="210" font-family="monospace" font-size="8" fill="#7A6450" letter-spacing="1">HOUSING PRICE
                 PREDICTION</text>
-              <rect x="0" y="215" width="400" height="3" fill="#C9A96E" opacity="0.7" />
+              <rect x="0" y="215" width="400" height="3" fill="#C8C8C8" opacity="0.7" />
             </svg>
           </div>
           <div class="apcard-body">
@@ -2249,7 +2249,7 @@
               <line x1="60" y1="55" x2="60" y2="145" stroke="#3D3020" stroke-width="1" />
               <line x1="100" y1="55" x2="100" y2="145" stroke="#3D3020" stroke-width="1" />
               <line x1="140" y1="55" x2="140" y2="145" stroke="#3D3020" stroke-width="1" />
-              <rect x="35" y="35" width="50" height="18" rx="3" fill="#C9A96E" />
+              <rect x="35" y="35" width="50" height="18" rx="3" fill="#C8C8C8" />
               <text x="41" y="48" font-family="monospace" font-size="8" fill="#130f0b" font-weight="bold">✓ Clear</text>
               <!-- blur simulation -->
               <rect x="210" y="25" width="170" height="130" rx="6" fill="#221A12" stroke="#3D3020" stroke-width="1" />
@@ -2262,13 +2262,13 @@
               <line x1="220" y1="95" x2="370" y2="95" stroke="#3D3020" stroke-width="3" filter="url(#blur1)" />
               <line x1="250" y1="55" x2="250" y2="145" stroke="#3D3020" stroke-width="3" filter="url(#blur1)" />
               <line x1="290" y1="55" x2="290" y2="145" stroke="#3D3020" stroke-width="3" filter="url(#blur1)" />
-              <rect x="218" y="35" width="58" height="18" rx="3" fill="#3a1a1a" stroke="#ff5f56" stroke-width="1" />
-              <text x="225" y="48" font-family="monospace" font-size="8" fill="#ff5f56">⚠ Blurred</text>
+              <rect x="218" y="35" width="58" height="18" rx="3" fill="#333333" stroke="#777777" stroke-width="1" />
+              <text x="225" y="48" font-family="monospace" font-size="8" fill="#555555">⚠ Blurred</text>
               <!-- CNN label -->
               <text x="20" y="188" font-family="monospace" font-size="8" fill="#7A6450" letter-spacing="1">CNN ·
                 TENSORFLOW · CLASSIFICATION</text>
               <text x="20" y="205" font-family="monospace" font-size="8" fill="#4a5a4a">Accuracy: 96.3%</text>
-              <rect x="0" y="215" width="400" height="3" fill="#C9A96E" opacity="0.7" />
+              <rect x="0" y="215" width="400" height="3" fill="#C8C8C8" opacity="0.7" />
             </svg>
           </div>
           <div class="apcard-body">
@@ -2304,53 +2304,53 @@
               <defs>
                 <linearGradient id="ahbg" x1="0" y1="0" x2="1" y2="1">
                   <stop offset="0%" stop-color="#130f0b" />
-                  <stop offset="100%" stop-color="#1B1510" />
+                  <stop offset="100%" stop-color="#141414" />
                 </linearGradient>
                 <linearGradient id="ahfear" x1="0" y1="0" x2="1" y2="0">
                   <stop offset="0%" stop-color="#ef4444" />
                   <stop offset="100%" stop-color="#f97316" />
                 </linearGradient>
                 <linearGradient id="ahgreed" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#C9A96E" />
-                  <stop offset="100%" stop-color="#C9A96E" />
+                  <stop offset="0%" stop-color="#C8C8C8" />
+                  <stop offset="100%" stop-color="#C8C8C8" />
                 </linearGradient>
               </defs>
               <rect width="400" height="225" fill="url(#ahbg)" />
-              <rect x="12" y="12" width="376" height="24" rx="5" fill="#1B1813" stroke="#2A2420" stroke-width="1" />
-              <circle cx="24" cy="24" r="4" fill="#C9A96E" />
+              <rect x="12" y="12" width="376" height="24" rx="5" fill="#141414" stroke="#2A2A2A" stroke-width="1" />
+              <circle cx="24" cy="24" r="4" fill="#C8C8C8" />
               <text x="34" y="28" font-family="monospace" font-size="8.5" fill="#BFB5A8">Hyperliquid · Fear &amp; Greed
                 Analysis</text>
               <!-- Gauge arc -->
-              <path d="M200 155 m-75 0 a75 75 0 0 1 150 0" fill="none" stroke="#2A2420" stroke-width="15"
+              <path d="M200 155 m-75 0 a75 75 0 0 1 150 0" fill="none" stroke="#2A2A2A" stroke-width="15"
                 stroke-linecap="round" />
               <path d="M200 155 m-75 0 a75 75 0 0 1 37.5 -64.9" fill="none" stroke="url(#ahfear)" stroke-width="15"
                 stroke-linecap="round" opacity="0.85" />
               <path d="M200 155 m37.5 -64.9 a75 75 0 0 1 37.5 64.9" fill="none" stroke="url(#ahgreed)" stroke-width="15"
                 stroke-linecap="round" opacity="0.85" />
               <line x1="200" y1="155" x2="160" y2="98" stroke="#f8fafc" stroke-width="2" stroke-linecap="round" />
-              <circle cx="200" cy="155" r="5" fill="#2A2420" stroke="#C9A96E" stroke-width="1.5" />
+              <circle cx="200" cy="155" r="5" fill="#2A2A2A" stroke="#C8C8C8" stroke-width="1.5" />
               <text x="118" y="170" font-family="monospace" font-size="7" fill="#ef4444"
                 text-anchor="middle">FEAR</text>
-              <text x="282" y="170" font-family="monospace" font-size="7" fill="#C9A96E"
+              <text x="282" y="170" font-family="monospace" font-size="7" fill="#C8C8C8"
                 text-anchor="middle">GREED</text>
-              <text x="200" y="178" font-family="monospace" font-size="8" fill="#EDE8DE" text-anchor="middle"
+              <text x="200" y="178" font-family="monospace" font-size="8" fill="#F0F0F0" text-anchor="middle"
                 font-weight="bold">38 — FEAR</text>
               <!-- KPI row -->
-              <rect x="12" y="44" width="85" height="38" rx="4" fill="#1B1813" stroke="#2A2420" stroke-width="1" />
+              <rect x="12" y="44" width="85" height="38" rx="4" fill="#141414" stroke="#2A2A2A" stroke-width="1" />
               <text x="20" y="57" font-family="monospace" font-size="6" fill="#7A6E62">WIN (FEAR)</text>
-              <text x="20" y="73" font-family="monospace" font-size="13" fill="#C9A96E" font-weight="bold">62%</text>
-              <rect x="106" y="44" width="85" height="38" rx="4" fill="#1B1813" stroke="#2A2420" stroke-width="1" />
+              <text x="20" y="73" font-family="monospace" font-size="13" fill="#C8C8C8" font-weight="bold">62%</text>
+              <rect x="106" y="44" width="85" height="38" rx="4" fill="#141414" stroke="#2A2A2A" stroke-width="1" />
               <text x="114" y="57" font-family="monospace" font-size="6" fill="#7A6E62">WIN (GREED)</text>
               <text x="114" y="73" font-family="monospace" font-size="13" fill="#ef4444" font-weight="bold">48%</text>
-              <rect x="200" y="44" width="85" height="38" rx="4" fill="#1B1813" stroke="#2A2420" stroke-width="1" />
+              <rect x="200" y="44" width="85" height="38" rx="4" fill="#141414" stroke="#2A2A2A" stroke-width="1" />
               <text x="208" y="57" font-family="monospace" font-size="6" fill="#7A6E62">LEVERAGE ↑</text>
               <text x="208" y="73" font-family="monospace" font-size="13" fill="#f97316" font-weight="bold">+15%</text>
-              <rect x="294" y="44" width="94" height="38" rx="4" fill="#1B1813" stroke="#2A2420" stroke-width="1" />
+              <rect x="294" y="44" width="94" height="38" rx="4" fill="#141414" stroke="#2A2A2A" stroke-width="1" />
               <text x="302" y="57" font-family="monospace" font-size="6" fill="#7A6E62">TRADE SIZE ↑</text>
               <text x="302" y="73" font-family="monospace" font-size="13" fill="#f97316"
                 font-weight="bold">+34.5%</text>
               <!-- Best profile -->
-              <rect x="12" y="190" width="376" height="28" rx="4" fill="#1B1813" stroke="#2A2420" stroke-width="1" />
+              <rect x="12" y="190" width="376" height="28" rx="4" fill="#141414" stroke="#2A2A2A" stroke-width="1" />
               <text x="20" y="204" font-family="monospace" font-size="7.5" fill="#BFB5A8">✔ Low freq ✔ Moderate leverage
                 ✔ Win rate &gt;50%</text>
               <text x="320" y="204" font-family="monospace" font-size="7" fill="#7A6E62">Best Profile</text>
@@ -2377,44 +2377,44 @@
               <defs>
                 <linearGradient id="bg3b" x1="0" y1="0" x2="1" y2="1">
                   <stop offset="0%" stop-color="#130f0b" />
-                  <stop offset="100%" stop-color="#1B1510" />
+                  <stop offset="100%" stop-color="#141414" />
                 </linearGradient>
               </defs>
               <rect width="400" height="225" fill="url(#bg3b)" />
-              <rect x="15" y="12" width="370" height="26" rx="5" fill="#1B1510" stroke="#2A2218" stroke-width="1" />
-              <circle cx="27" cy="25" r="4" fill="#C9A96E" />
+              <rect x="15" y="12" width="370" height="26" rx="5" fill="#141414" stroke="#2A2218" stroke-width="1" />
+              <circle cx="27" cy="25" r="4" fill="#C8C8C8" />
               <text x="38" y="29" font-family="monospace" font-size="9" fill="#C4A06A">E-Commerce Analytics
                 Dashboard</text>
-              <rect x="15" y="48" width="80" height="42" rx="4" fill="#1B1510" stroke="#2A2218" stroke-width="1" />
+              <rect x="15" y="48" width="80" height="42" rx="4" fill="#141414" stroke="#2A2218" stroke-width="1" />
               <text x="22" y="61" font-family="monospace" font-size="7" fill="#9A8060">REVENUE</text>
-              <text x="22" y="79" font-family="monospace" font-size="11" fill="#C9A96E" font-weight="bold">$84K</text>
-              <rect x="105" y="48" width="80" height="42" rx="4" fill="#1B1510" stroke="#2A2218" stroke-width="1" />
+              <text x="22" y="79" font-family="monospace" font-size="11" fill="#C8C8C8" font-weight="bold">$84K</text>
+              <rect x="105" y="48" width="80" height="42" rx="4" fill="#141414" stroke="#2A2218" stroke-width="1" />
               <text x="112" y="61" font-family="monospace" font-size="7" fill="#9A8060">ORDERS</text>
               <text x="112" y="79" font-family="monospace" font-size="11" fill="#60d4f0" font-weight="bold">2,341</text>
-              <rect x="195" y="48" width="80" height="42" rx="4" fill="#1B1510" stroke="#2A2218" stroke-width="1" />
+              <rect x="195" y="48" width="80" height="42" rx="4" fill="#141414" stroke="#2A2218" stroke-width="1" />
               <text x="202" y="61" font-family="monospace" font-size="7" fill="#9A8060">USERS</text>
               <text x="202" y="79" font-family="monospace" font-size="11" fill="#f0c060" font-weight="bold">14.8K</text>
-              <rect x="285" y="48" width="100" height="42" rx="4" fill="#1B1510" stroke="#2A2218" stroke-width="1" />
+              <rect x="285" y="48" width="100" height="42" rx="4" fill="#141414" stroke="#2A2218" stroke-width="1" />
               <text x="292" y="61" font-family="monospace" font-size="7" fill="#9A8060">CONVERSION</text>
               <text x="292" y="79" font-family="monospace" font-size="11" fill="#f09060" font-weight="bold">3.62%</text>
               <!-- bars -->
-              <rect x="15" y="100" width="240" height="110" rx="4" fill="#1B1510" stroke="#2A2218" stroke-width="1" />
+              <rect x="15" y="100" width="240" height="110" rx="4" fill="#141414" stroke="#2A2218" stroke-width="1" />
               <text x="23" y="114" font-family="monospace" font-size="7" fill="#9A8060">MONTHLY REVENUE</text>
-              <rect x="26" y="158" width="18" height="37" rx="1" fill="#C9A96E" opacity="0.5" />
-              <rect x="54" y="143" width="18" height="52" rx="1" fill="#C9A96E" opacity="0.6" />
-              <rect x="82" y="150" width="18" height="45" rx="1" fill="#C9A96E" opacity="0.65" />
-              <rect x="110" y="133" width="18" height="62" rx="1" fill="#C9A96E" opacity="0.75" />
-              <rect x="138" y="126" width="18" height="69" rx="1" fill="#C9A96E" opacity="0.85" />
-              <rect x="166" y="118" width="18" height="77" rx="1" fill="#C9A96E" opacity="0.95" />
-              <rect x="194" y="121" width="18" height="74" rx="1" fill="#C9A96E" />
+              <rect x="26" y="158" width="18" height="37" rx="1" fill="#C8C8C8" opacity="0.5" />
+              <rect x="54" y="143" width="18" height="52" rx="1" fill="#C8C8C8" opacity="0.6" />
+              <rect x="82" y="150" width="18" height="45" rx="1" fill="#C8C8C8" opacity="0.65" />
+              <rect x="110" y="133" width="18" height="62" rx="1" fill="#C8C8C8" opacity="0.75" />
+              <rect x="138" y="126" width="18" height="69" rx="1" fill="#C8C8C8" opacity="0.85" />
+              <rect x="166" y="118" width="18" height="77" rx="1" fill="#C8C8C8" opacity="0.95" />
+              <rect x="194" y="121" width="18" height="74" rx="1" fill="#C8C8C8" />
               <!-- pie -->
-              <rect x="265" y="100" width="135" height="110" rx="4" fill="#1B1510" stroke="#2A2218" stroke-width="1" />
+              <rect x="265" y="100" width="135" height="110" rx="4" fill="#141414" stroke="#2A2218" stroke-width="1" />
               <text x="273" y="114" font-family="monospace" font-size="7" fill="#9A8060">SEGMENTS</text>
               <circle cx="332" cy="165" r="38" fill="none" stroke="#2A2218" stroke-width="1" />
-              <path d="M332 165 L332 127 A38 38 0 0 1 365 184 Z" fill="#C9A96E" opacity="0.8" />
+              <path d="M332 165 L332 127 A38 38 0 0 1 365 184 Z" fill="#C8C8C8" opacity="0.8" />
               <path d="M332 165 L365 184 A38 38 0 0 1 299 184 Z" fill="#60d4f0" opacity="0.7" />
               <path d="M332 165 L299 184 A38 38 0 0 1 332 127 Z" fill="#f0c060" opacity="0.6" />
-              <rect x="0" y="215" width="400" height="3" fill="#C9A96E" opacity="0.7" />
+              <rect x="0" y="215" width="400" height="3" fill="#C8C8C8" opacity="0.7" />
             </svg>
           </div>
           <div class="apcard-body">
@@ -2437,26 +2437,26 @@
               <rect width="400" height="225" fill="#130f0b" />
               <text x="20" y="35" font-family="monospace" font-size="10" fill="#C4906A">Bankruptcy Risk Predictor</text>
               <!-- Risk meter -->
-              <rect x="20" y="50" width="360" height="30" rx="15" fill="#1a0d0d" stroke="#3a1a1a" stroke-width="1" />
-              <rect x="22" y="52" width="240" height="26" rx="13" fill="#C9A96E" opacity="0.8" />
+              <rect x="20" y="50" width="360" height="30" rx="15" fill="#1a0d0d" stroke="#333333" stroke-width="1" />
+              <rect x="22" y="52" width="240" height="26" rx="13" fill="#C8C8C8" opacity="0.8" />
               <text x="200" y="70" font-family="monospace" font-size="9" fill="#130f0b" font-weight="bold"
                 text-anchor="middle">Risk: 67%</text>
               <!-- Feature importance bars -->
               <text x="20" y="105" font-family="monospace" font-size="8" fill="#9A7060">Feature Importance</text>
               <rect x="20" y="115" width="200" height="12" rx="3" fill="#2a1a1a" />
-              <rect x="20" y="115" width="180" height="12" rx="3" fill="#C9A96E" opacity="0.7" />
+              <rect x="20" y="115" width="180" height="12" rx="3" fill="#C8C8C8" opacity="0.7" />
               <text x="228" y="125" font-family="monospace" font-size="8" fill="#C4A06A">Debt Ratio</text>
               <rect x="20" y="133" width="140" height="12" rx="3" fill="#2a1a1a" />
-              <rect x="20" y="133" width="120" height="12" rx="3" fill="#C9A96E" opacity="0.6" />
+              <rect x="20" y="133" width="120" height="12" rx="3" fill="#C8C8C8" opacity="0.6" />
               <text x="228" y="143" font-family="monospace" font-size="8" fill="#C4A06A">Net Income</text>
               <rect x="20" y="151" width="100" height="12" rx="3" fill="#2a1a1a" />
-              <rect x="20" y="151" width="80" height="12" rx="3" fill="#C9A96E" opacity="0.5" />
+              <rect x="20" y="151" width="80" height="12" rx="3" fill="#C8C8C8" opacity="0.5" />
               <text x="228" y="161" font-family="monospace" font-size="8" fill="#C4A06A">Equity Ratio</text>
               <!-- ROC curve hint -->
               <text x="20" y="190" font-family="monospace" font-size="8" fill="#5a3a3a" letter-spacing="1">DECISION TREE
                 · LOGISTIC REGRESSION</text>
               <text x="20" y="207" font-family="monospace" font-size="8" fill="#6a5a3a">AUC: 0.89 · Accuracy: 84%</text>
-              <rect x="0" y="215" width="400" height="3" fill="#C9A96E" opacity="0.7" />
+              <rect x="0" y="215" width="400" height="3" fill="#C8C8C8" opacity="0.7" />
             </svg>
           </div>
           <div class="apcard-body">
@@ -2481,22 +2481,22 @@
               <text x="20" y="28" font-family="monospace" font-size="9" fill="#9A8060">Youth Tobacco Insights —
                 India</text>
               <!-- line chart -->
-              <rect x="15" y="35" width="370" height="145" rx="5" fill="#1B1813" stroke="#1a2030" stroke-width="1" />
+              <rect x="15" y="35" width="370" height="145" rx="5" fill="#141414" stroke="#1E1E1E" stroke-width="1" />
               <line x1="25" y1="50" x2="25" y2="170" stroke="#2A2218" stroke-width="1" />
               <line x1="25" y1="170" x2="375" y2="170" stroke="#2A2218" stroke-width="1" />
               <!-- data lines -->
               <polyline points="40,140 80,125 120,130 160,108 200,115 240,95 280,100 320,85 360,90" fill="none"
-                stroke="#C9A96E" stroke-width="2" stroke-linejoin="round" />
+                stroke="#C8C8C8" stroke-width="2" stroke-linejoin="round" />
               <polyline points="40,155 80,150 120,148 160,142 200,138 240,132 280,128 320,122 360,118" fill="none"
                 stroke="#60d4f0" stroke-width="2" stroke-linejoin="round" />
               <!-- dots -->
-              <circle cx="40" cy="140" r="3" fill="#C9A96E" />
-              <circle cx="160" cy="108" r="3" fill="#C9A96E" />
-              <circle cx="360" cy="90" r="3" fill="#C9A96E" />
+              <circle cx="40" cy="140" r="3" fill="#C8C8C8" />
+              <circle cx="160" cy="108" r="3" fill="#C8C8C8" />
+              <circle cx="360" cy="90" r="3" fill="#C8C8C8" />
               <circle cx="40" cy="155" r="3" fill="#60d4f0" />
               <circle cx="360" cy="118" r="3" fill="#60d4f0" />
               <!-- legend -->
-              <rect x="245" y="52" width="8" height="3" fill="#C9A96E" rx="1" />
+              <rect x="245" y="52" width="8" height="3" fill="#C8C8C8" rx="1" />
               <text x="257" y="57" font-family="monospace" font-size="7" fill="#7a9a5a">Male</text>
               <rect x="245" y="62" width="8" height="3" fill="#60d4f0" rx="1" />
               <text x="257" y="67" font-family="monospace" font-size="7" fill="#5a8a9a">Female</text>
@@ -2508,7 +2508,7 @@
               <text x="345" y="183" font-family="monospace" font-size="6" fill="#7A6450">2023</text>
               <text x="20" y="208" font-family="monospace" font-size="7" fill="#7A6450" letter-spacing="1">MATPLOTLIB ·
                 PANDAS · PUBLIC HEALTH</text>
-              <rect x="0" y="215" width="400" height="3" fill="#C9A96E" opacity="0.7" />
+              <rect x="0" y="215" width="400" height="3" fill="#C8C8C8" opacity="0.7" />
             </svg>
           </div>
           <div class="apcard-body">
@@ -2540,21 +2540,21 @@
               <text x="340" y="52" font-family="monospace" font-size="8" fill="#7A6450"
                 text-anchor="middle">Naypyidaw</text>
               <!-- Yangon bars -->
-              <rect x="25" y="160" width="25" height="25" rx="2" fill="#C9A96E" opacity="0.8" />
+              <rect x="25" y="160" width="25" height="25" rx="2" fill="#C8C8C8" opacity="0.8" />
               <rect x="55" y="120" width="25" height="65" rx="2" fill="#60d4f0" opacity="0.7" />
               <rect x="85" y="100" width="25" height="85" rx="2" fill="#f0a060" opacity="0.7" />
               <!-- Mandalay bars -->
-              <rect x="165" y="130" width="25" height="55" rx="2" fill="#C9A96E" opacity="0.8" />
+              <rect x="165" y="130" width="25" height="55" rx="2" fill="#C8C8C8" opacity="0.8" />
               <rect x="195" y="108" width="25" height="77" rx="2" fill="#60d4f0" opacity="0.7" />
               <rect x="225" y="118" width="25" height="67" rx="2" fill="#f0a060" opacity="0.7" />
               <!-- Naypyidaw bars -->
-              <rect x="305" y="140" width="25" height="45" rx="2" fill="#C9A96E" opacity="0.8" />
+              <rect x="305" y="140" width="25" height="45" rx="2" fill="#C8C8C8" opacity="0.8" />
               <rect x="335" y="115" width="25" height="70" rx="2" fill="#60d4f0" opacity="0.7" />
               <rect x="365" y="125" width="25" height="60" rx="2" fill="#f0a060" opacity="0.7" />
               <!-- baseline -->
               <line x1="15" y1="187" x2="395" y2="187" stroke="#2A2218" stroke-width="1" />
               <!-- legend -->
-              <rect x="20" y="195" width="8" height="5" fill="#C9A96E" opacity="0.8" rx="1" />
+              <rect x="20" y="195" width="8" height="5" fill="#C8C8C8" opacity="0.8" rx="1" />
               <text x="32" y="201" font-family="monospace" font-size="7" fill="#C4A06A">Electronics</text>
               <rect x="110" y="195" width="8" height="5" fill="#60d4f0" opacity="0.8" rx="1" />
               <text x="122" y="201" font-family="monospace" font-size="7" fill="#9A8060">Fashion</text>
@@ -2562,7 +2562,7 @@
               <text x="202" y="201" font-family="monospace" font-size="7" fill="#C4A06A">Food</text>
               <text x="270" y="201" font-family="monospace" font-size="7" fill="#7A6450">SEABORN · MATPLOTLIB ·
                 PANDAS</text>
-              <rect x="0" y="215" width="400" height="3" fill="#C9A96E" opacity="0.7" />
+              <rect x="0" y="215" width="400" height="3" fill="#C8C8C8" opacity="0.7" />
             </svg>
           </div>
           <div class="apcard-body">
@@ -2596,32 +2596,32 @@
               preserveAspectRatio="xMidYMid slice">
               <rect width="400" height="225" fill="#130f0b" />
               <!-- Browser chrome -->
-              <rect x="15" y="15" width="370" height="195" rx="6" fill="#1B1510" stroke="#2A2420" stroke-width="1" />
-              <rect x="15" y="15" width="370" height="28" rx="6" fill="#221E18" stroke="#2A2420" stroke-width="1" />
-              <circle cx="30" cy="29" r="4" fill="#ff5f56" />
-              <circle cx="44" cy="29" r="4" fill="#ffbd2e" />
-              <circle cx="58" cy="29" r="4" fill="#27c93f" />
-              <rect x="80" y="20" width="240" height="18" rx="9" fill="#221E18" stroke="#3D3630" stroke-width="1" />
-              <text x="160" y="32" font-family="monospace" font-size="8" fill="#9A9085"
+              <rect x="15" y="15" width="370" height="195" rx="6" fill="#141414" stroke="#2A2A2A" stroke-width="1" />
+              <rect x="15" y="15" width="370" height="28" rx="6" fill="#1E1E1E" stroke="#2A2A2A" stroke-width="1" />
+              <circle cx="30" cy="29" r="4" fill="#555555" />
+              <circle cx="44" cy="29" r="4" fill="#888888" />
+              <circle cx="58" cy="29" r="4" fill="#bbbbbb" />
+              <rect x="80" y="20" width="240" height="18" rx="9" fill="#1E1E1E" stroke="#3A3A3A" stroke-width="1" />
+              <text x="160" y="32" font-family="monospace" font-size="8" fill="#888888"
                 text-anchor="middle">tempus-world-clock.app</text>
               <!-- Clock display -->
               <text x="200" y="70" font-family="monospace" font-size="10" fill="#7A6E62" text-anchor="middle">WORLD
                 CLOCK</text>
-              <rect x="30" y="80" width="155" height="50" rx="5" fill="#1B1813" stroke="#2A2420" stroke-width="1" />
-              <text x="45" y="98" font-family="monospace" font-size="8" fill="#9A9085">New York</text>
-              <text x="45" y="118" font-family="monospace" font-size="18" fill="#C9A96E" font-weight="bold">14:32</text>
-              <rect x="215" y="80" width="155" height="50" rx="5" fill="#1B1813" stroke="#2A2420" stroke-width="1" />
-              <text x="230" y="98" font-family="monospace" font-size="8" fill="#9A9085">Tokyo</text>
-              <text x="230" y="118" font-family="monospace" font-size="18" fill="#C9A96E"
+              <rect x="30" y="80" width="155" height="50" rx="5" fill="#141414" stroke="#2A2A2A" stroke-width="1" />
+              <text x="45" y="98" font-family="monospace" font-size="8" fill="#888888">New York</text>
+              <text x="45" y="118" font-family="monospace" font-size="18" fill="#C8C8C8" font-weight="bold">14:32</text>
+              <rect x="215" y="80" width="155" height="50" rx="5" fill="#141414" stroke="#2A2A2A" stroke-width="1" />
+              <text x="230" y="98" font-family="monospace" font-size="8" fill="#888888">Tokyo</text>
+              <text x="230" y="118" font-family="monospace" font-size="18" fill="#C8C8C8"
                 font-weight="bold">03:32</text>
-              <rect x="30" y="140" width="155" height="50" rx="5" fill="#1B1813" stroke="#2A2420" stroke-width="1" />
-              <text x="45" y="158" font-family="monospace" font-size="8" fill="#9A9085">London</text>
-              <text x="45" y="178" font-family="monospace" font-size="18" fill="#C9A96E" font-weight="bold">19:32</text>
-              <rect x="215" y="140" width="155" height="50" rx="5" fill="#1B1813" stroke="#2A2420" stroke-width="1" />
-              <text x="230" y="158" font-family="monospace" font-size="8" fill="#9A9085">Dubai</text>
-              <text x="230" y="178" font-family="monospace" font-size="18" fill="#C9A96E"
+              <rect x="30" y="140" width="155" height="50" rx="5" fill="#141414" stroke="#2A2A2A" stroke-width="1" />
+              <text x="45" y="158" font-family="monospace" font-size="8" fill="#888888">London</text>
+              <text x="45" y="178" font-family="monospace" font-size="18" fill="#C8C8C8" font-weight="bold">19:32</text>
+              <rect x="215" y="140" width="155" height="50" rx="5" fill="#141414" stroke="#2A2A2A" stroke-width="1" />
+              <text x="230" y="158" font-family="monospace" font-size="8" fill="#888888">Dubai</text>
+              <text x="230" y="178" font-family="monospace" font-size="18" fill="#C8C8C8"
                 font-weight="bold">22:32</text>
-              <rect x="0" y="215" width="400" height="3" fill="#C9A96E" opacity="0.7" />
+              <rect x="0" y="215" width="400" height="3" fill="#C8C8C8" opacity="0.7" />
             </svg>
           </div>
           <div class="apcard-body">
@@ -2645,9 +2645,9 @@
               <text x="20" y="30" font-family="monospace" font-size="10" fill="#9A8060">Carbon Footprint Finder</text>
               <!-- CO2 meter -->
               <circle cx="200" cy="115" r="70" fill="none" stroke="#2A2218" stroke-width="8" />
-              <circle cx="200" cy="115" r="70" fill="none" stroke="#C9A96E" stroke-width="8" stroke-dasharray="285 175"
+              <circle cx="200" cy="115" r="70" fill="none" stroke="#C8C8C8" stroke-width="8" stroke-dasharray="285 175"
                 stroke-dashoffset="-88" stroke-linecap="round" />
-              <text x="200" y="105" font-family="monospace" font-size="11" fill="#C9A96E" text-anchor="middle"
+              <text x="200" y="105" font-family="monospace" font-size="11" fill="#C8C8C8" text-anchor="middle"
                 font-weight="bold">247 kg</text>
               <text x="200" y="122" font-family="monospace" font-size="8" fill="#4a7a4a" text-anchor="middle">CO₂e /
                 year</text>
@@ -2660,7 +2660,7 @@
               <text x="189" y="206" font-family="monospace" font-size="7" fill="#C4A06A">HTML</text>
               <rect x="230" y="195" width="45" height="16" rx="4" fill="#2A2218" stroke="#3D3020" />
               <text x="235" y="206" font-family="monospace" font-size="7" fill="#C4A06A">JavaScript</text>
-              <rect x="0" y="215" width="400" height="3" fill="#C9A96E" opacity="0.7" />
+              <rect x="0" y="215" width="400" height="3" fill="#C8C8C8" opacity="0.7" />
             </svg>
           </div>
           <div class="apcard-body">
